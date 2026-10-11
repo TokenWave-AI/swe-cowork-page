@@ -247,3 +247,8 @@ html.js .reveal.is-visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
     *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+
+/* Keep the evidence note text together beside its status dot. */
+.aside-fact>div{min-width:0}
+.aside-fact>div>b{display:inline;color:var(--ink)}
+.aside-fact>div>span{display:inline}
