@@ -1,6 +1,8 @@
 # SWE-CoWork research page
 
-A static research story for the TokenWave AI paper **SWE-CoWork: Evaluating Coding Agents in Organisations of Employee Digital Twins**.
+A static research page for the TokenWave AI paper **SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations**.
+
+Code and benchmark: https://github.com/TokenWave-AI/swe-cowork-bench
 
 Run it locally from this directory with:
 
