@@ -27,6 +27,7 @@
                 <a href="#loop">The loop</a>
                 <a href="#results">Evidence</a>
                 <a href="#diagnosis">Diagnosis</a>
+                <a href="#figures">Figures</a>
             </nav>
             <div class="header-links">
                 <a class="header-link" href="https://github.com/TokenWave-AI/swe-cowork-bench" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
@@ -88,32 +89,36 @@
 
             <div class="comparison reveal">
                 <article class="comparison-card comparison-old">
-                    <div class="card-label"><span class="card-dot dot-muted"></span> Issue-style SWE</div>
+                    <div class="card-label"><span class="card-dot dot-muted"></span> Issue-style SWE <em>the usual benchmark</em></div>
                     <div class="issue-window">
-                        <div class="window-top"><span>pallets / click</span><span class="window-menu">•••</span></div>
-                        <div class="window-status"><span class="status-check">✓</span> Open issue</div>
-                        <h3>Output capture</h3>
-                        <p>Extend the result: preserve write order; expose stdout and stderr separately.</p>
-                        <div class="issue-lines"><span></span><span></span><span></span></div>
+                        <div class="window-top"><span>pallets / click</span><span class="window-tag">Open issue</span></div>
+                        <div class="issue-body">
+                            <h3>Output capture</h3>
+                            <p>Extend the result: preserve write order; expose stdout and stderr separately.</p>
+                        </div>
+                        <ul class="given-list">
+                            <li><span>Spec</span>written up front</li>
+                            <li><span>People</span>none to consult</li>
+                            <li><span>Context</span>all in the ticket</li>
+                        </ul>
                     </div>
-                    <div class="card-foot">Issue + repository <span>→</span> patch</div>
+                    <div class="card-foot"><span>issue + repository</span><i>→</i><b>patch</b></div>
                 </article>
 
                 <div class="comparison-arrow" aria-hidden="true"><span>→</span><small>same objective</small></div>
 
                 <article class="comparison-card comparison-new">
-                    <div class="card-label"><span class="card-dot dot-accent"></span> SWE-CoWork</div>
+                    <div class="card-label"><span class="card-dot dot-accent"></span> SWE-CoWork <em>work already in progress</em></div>
                     <div class="work-window">
-                        <div class="window-top"><span>work already in progress</span><span class="window-menu">⌁</span></div>
-                        <div class="handoff">“Finish the compatibility work.”<small>Six minutes of context. The previous owner is unavailable.</small></div>
-                        <div class="work-steps">
-                            <div class="work-step is-done"><span>01</span><b>Investigate</b><small>board · docs · history</small></div>
-                            <div class="work-step is-active"><span>02</span><b>Ask with context</b><small>find the owner</small></div>
-                            <div class="work-step"><span>03</span><b>Build &amp; check</b><small>patch · CI · tests</small></div>
-                            <div class="work-step"><span>04</span><b>Revisit &amp; deliver</b><small>close the open loop</small></div>
-                        </div>
+                        <div class="handoff"><span class="handoff-tag">Handoff</span>“Finish the compatibility work.”<small>Six minutes of context. The previous owner is unavailable.</small></div>
+                        <ol class="work-steps">
+                            <li class="work-step is-done"><span>01</span><b>Investigate</b><small>board · docs · history</small></li>
+                            <li class="work-step is-active"><span>02</span><b>Ask with context</b><small>find the owner</small></li>
+                            <li class="work-step"><span>03</span><b>Build &amp; check</b><small>patch · CI · tests</small></li>
+                            <li class="work-step"><span>04</span><b>Revisit &amp; deliver</b><small>close the open loop</small></li>
+                        </ol>
                     </div>
-                    <div class="card-foot">organization + evidence <span>→</span> verified delivery</div>
+                    <div class="card-foot"><span>organization + evidence</span><i>→</i><b>verified delivery</b></div>
                 </article>
             </div>
 
@@ -376,9 +381,64 @@
             </div>
         </section>
 
+        <section class="section container" id="figures">
+            <div class="section-heading reveal">
+                <div class="section-kicker">06 · The paper</div>
+                <h2>Every figure,<br><span class="muted-heading">straight from the paper.</span></h2>
+                <p>All ten figures from the paper, rendered from the source files. Select a figure to enlarge it, or <a href="static/SWE-CoWork.pdf" target="_blank" rel="noopener">read the full PDF</a>.</p>
+            </div>
+            <div class="paper-figs reveal">
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="1" aria-label="Enlarge Figure 1"><img src="static/figures/fig01.webp" alt="The same Click requirement as an issue-based task and as an ongoing SWE-CoWork assignment" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 1</b> The same Click requirement presented directly as an issue (left) and within an ongoing SWE-CoWork assignment (right). Knowledge is distributed among digital employees and workplace records; the agent recovers the requirement, consults the responsible colleague, implements and verifies the change, and updates its interpretation when new evidence appears.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="2" aria-label="Enlarge Figure 2"><img src="static/figures/fig02.webp" alt="Composition of the 101 tasks" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 2</b> Composition of the 101 SWE-CoWork tasks: (a) primary language, (b) application domain, (c) production lines added, on a log axis, (d) verifier test nodes per task. Dashed lines mark medians.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="3" aria-label="Enlarge Figure 3"><img src="static/figures/fig03.webp" alt="An owner clarification changes a timesheet export in task 094, Kimai" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 3</b> An owner clarification changes a timesheet export implementation in a recorded run (task 094, Kimai). The owner specifies that the user’s preference must be evaluated on every render, and the agent updates its implementation and tests.</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="4" aria-label="Enlarge Figure 4"><img src="static/figures/fig04.webp" alt="Eight workplace situations represented in SWE-CoWork" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 4</b> Eight workplace situations represented in SWE-CoWork: scattered requirements, divided knowledge, superseded records, uncertain provenance, late-arriving evidence, scope distractors, multi-turn clarification, and investigation interleaved with coding.</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="5" aria-label="Enlarge Figure 5"><img src="static/figures/fig05.webp" alt="F2P against requirement acquisition and tool calls across eleven models" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 5</b> Requirement acquisition, tool calls, and delivery across eleven models. (a) F2P against the share of colleague-held requirements disclosed during the run (Spearman ρ = 0.94). (b) F2P against median tool calls per run, on a log axis (ρ = 0.08).</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="6" aria-label="Enlarge Figure 6"><img src="static/figures/fig06.webp" alt="Requirement acquisition and loss in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 6</b> Requirement acquisition and loss in Claude-Opus-5.5. (a) Colleague-held requirements by acquisition state. (b) F2P pass rates by whether the requirement reached the agent. (c) Earliest observed loss stage for failed nodes.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="7" aria-label="Enlarge Figure 7"><img src="static/figures/fig07.webp" alt="Follow-through and reporting in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 7</b> Follow-through and reporting in Claude-Opus-5.5. (a) Delivery claims compared with test outcomes. (b) Deferred threads and their follow-up. (c) Timing of colleague messages within a run.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="8" aria-label="Enlarge Figure 8"><img src="static/figures/fig08.webp" alt="Claude-Opus-5.5 behavior profile" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 8</b> Claude-Opus-5.5 behavior profile. (a) Share of assessable runs by observed behavior, from ineffective to adaptive. (b) Spearman associations with per-task F2P, with exploratory 95% bootstrap intervals.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="9" aria-label="Enlarge Figure 9"><img src="static/figures/fig09.webp" alt="Effort, outcomes and stopping in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 9</b> Effort, outcomes and stopping in Claude-Opus-5.5. (a–c) Tool calls, colleague messages and hours against per-task F2P. (d) Distribution of F2P over the 101 tasks. (e) How runs ended, including stops with known, actionable gaps.</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="10" aria-label="Enlarge Figure 10"><img src="static/figures/fig10.webp" alt="Examples of evidence assessment in workplace records" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 10</b> Examples of evidence assessment in workplace records. (a) A published correction supersedes an earlier return shape. (b) Run identifiers expose a discrepancy in copied terminal output. (c) Output semantics and an open question about stream ownership.</figcaption>
+                </figure>
+            </div>
+            <dialog class="fig-lightbox" id="fig-lightbox" aria-label="Enlarged figure">
+                <div class="fig-lightbox-bar"><span id="fig-lightbox-label">Figure 1</span><div><button type="button" class="metric-button" id="fig-prev" aria-label="Previous figure">←</button><button type="button" class="metric-button" id="fig-next" aria-label="Next figure">→</button><button type="button" class="metric-button" id="fig-close" aria-label="Close">Close</button></div></div>
+                <img id="fig-lightbox-img" src="" alt="">
+                <p id="fig-lightbox-cap"></p>
+            </dialog>
+        </section>
+
         <section class="section container" id="team">
             <div class="section-heading reveal">
-                <div class="section-kicker">06 · The team</div>
+                <div class="section-kicker">07 · The team</div>
                 <h2>Authors</h2>
             </div>
             <div class="author-grid reveal">

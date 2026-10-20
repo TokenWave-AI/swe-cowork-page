@@ -330,4 +330,38 @@
             heroVisual.style.setProperty("--tilt-y", "0deg");
         });
     }
+
+    var lightbox = document.getElementById("fig-lightbox");
+    var figButtons = Array.prototype.slice.call(document.querySelectorAll(".paper-fig-open"));
+    if (lightbox && typeof lightbox.showModal === "function" && figButtons.length) {
+        var lbImg = document.getElementById("fig-lightbox-img");
+        var lbCap = document.getElementById("fig-lightbox-cap");
+        var lbLabel = document.getElementById("fig-lightbox-label");
+        var current = 0;
+        var showFig = function (index) {
+            current = (index + figButtons.length) % figButtons.length;
+            var button = figButtons[current];
+            var img = button.querySelector("img");
+            var caption = button.parentNode.querySelector("figcaption");
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lbLabel.textContent = "Figure " + button.getAttribute("data-fig") + " / " + figButtons.length;
+            lbCap.textContent = caption.textContent.replace(/^Figure \d+\s*/, "");
+        };
+        figButtons.forEach(function (button, index) {
+            button.addEventListener("click", function () { showFig(index); lightbox.showModal(); });
+        });
+        document.getElementById("fig-prev").addEventListener("click", function () { showFig(current - 1); });
+        document.getElementById("fig-next").addEventListener("click", function () { showFig(current + 1); });
+        document.getElementById("fig-close").addEventListener("click", function () { lightbox.close(); });
+        lightbox.addEventListener("click", function (event) { if (event.target === lightbox) { lightbox.close(); } });
+        lightbox.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowLeft") { showFig(current - 1); }
+            if (event.key === "ArrowRight") { showFig(current + 1); }
+        });
+    } else {
+        figButtons.forEach(function (button) {
+            button.addEventListener("click", function () { window.open(button.querySelector("img").src, "_blank", "noopener"); });
+        });
+    }
 })();
