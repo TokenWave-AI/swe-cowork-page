@@ -50,24 +50,64 @@
                 <div class="hero-note"><span class="status-dot"></span> SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations</div>
             </div>
 
-            <div class="hero-visual reveal reveal-delay" aria-label="An organization map connecting an agent to workplace evidence">
+            <div class="hero-visual reveal reveal-delay">
                 <div class="hero-visual-glow"></div>
-                <div class="orbit orbit-outer"></div>
-                <div class="orbit orbit-inner"></div>
-                <div class="orbit-node node-board"><span class="node-icon">▦</span><span>Board</span></div>
-                <div class="orbit-node node-docs"><span class="node-icon">▤</span><span>Docs</span></div>
-                <div class="orbit-node node-chat"><span class="node-icon">◌</span><span>Chat</span></div>
-                <div class="orbit-node node-ci"><span class="node-icon">⌁</span><span>CI</span></div>
-                <div class="orbit-node node-people"><span class="node-icon">♙</span><span>People</span></div>
-                <div class="orbit-line line-a"></div>
-                <div class="orbit-line line-b"></div>
-                <div class="orbit-line line-c"></div>
-                <div class="hero-core">
-                    <span class="core-kicker">SWE-CoWork</span>
-                    <strong>the agent<br>enters the team</strong>
-                    <span class="core-pulse"></span>
+                <div class="cw-stage" role="img" aria-label="Illustrative task: a coding agent reads a board ticket and versioned docs, asks the owner to clarify output capture, then builds and verifies a repository patch.">
+                    <svg class="cw-wires" viewBox="0 0 540 520" preserveAspectRatio="none" aria-hidden="true">
+                    <path id="cw-p-board" d="M372 66 C 320 66, 305 172, 270 250"/>
+                    <path id="cw-p-docs" d="M168 420 C 220 420, 240 310, 270 250"/>
+                    <path id="cw-p-chat" d="M168 80 C 225 80, 235 172, 270 250"/>
+                    <path id="cw-p-ci" d="M372 420 C 320 420, 300 310, 270 250"/>
+                    <g class="cw-dots">
+                    <circle r="4.2" fill="#86c1ff" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.02;0.14;1" calcMode="linear"><mpath href="#cw-p-board"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.02;0.03;0.13;0.14;1"/></circle>
+                    <circle r="4.2" fill="#86c1ff" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.22;0.34;1" calcMode="linear"><mpath href="#cw-p-docs"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.22;0.23;0.33;0.34;1"/></circle>
+                    <circle r="4.2" fill="#9e7bff" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="1;1;0;0" keyTimes="0;0.4;0.52;1" calcMode="linear"><mpath href="#cw-p-chat"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.4;0.41;0.51;0.52;1"/></circle>
+                    <circle r="4.2" fill="#f0784c" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.56;0.7;1" calcMode="linear"><mpath href="#cw-p-chat"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.56;0.57;0.69;0.7;1"/></circle>
+                    <circle r="4.2" fill="#42c99b" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="1;1;0;0" keyTimes="0;0.74;0.84;1" calcMode="linear"><mpath href="#cw-p-ci"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.74;0.75;0.83;0.84;1"/></circle>
+                    </g></svg>
+                    <div class="cw-src cw-chat">
+                        <div class="cw-src-head"><svg class="cw-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H9l-5 3v-6A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 9h7M8 13h4"/></svg>Chat<span class="cw-avatars"><i>L</i><i>M</i><i>R</i><em>+23</em></span></div>
+                        <div class="cw-msg"><b class="cw-who">Lucy · owner</b>Keep stdout and stderr separate. Preserve write order.</div>
+                    </div>
+                    <div class="cw-src cw-board">
+                        <div class="cw-src-head"><svg class="cw-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16M5.5 8h1M11.5 8h1M17.5 8h1"/></svg>Board</div>
+                        <div class="cw-ticket"><span>CLK-201</span>Output capture</div>
+                        <div class="cw-row"><span class="cw-pill">In progress</span><span class="cw-dim">owner: Lucy</span></div>
+                    </div>
+                    <div class="cw-src cw-docs">
+                        <div class="cw-src-head"><svg class="cw-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H5v18h14V8Z"/><path d="M14 3v5h5M8 12h8M8 16h6"/></svg>Docs<span class="cw-ver">DOC-11 · v3</span></div>
+                        <div class="cw-old">Only one output string.</div>
+                        <div class="cw-new">Current: separate + interleaved.</div>
+                    </div>
+                    <div class="cw-src cw-ci">
+                        <div class="cw-src-head"><svg class="cw-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 6 6-6 6M13 18h7"/></svg>Terminal</div>
+                        <code>$ pytest</code>
+                        <code class="cw-pass">✓ output checks passed</code>
+                    </div>
+                    <div class="cw-agent">
+                        <svg class="cw-bot" viewBox="0 0 64 60" aria-hidden="true">
+                            <line x1="32" y1="4" x2="32" y2="13" stroke="#86c1ff" stroke-width="2"/>
+                            <circle class="cw-bot-tip" cx="32" cy="5" r="3.4" fill="#42c99b"/>
+                            <rect x="8" y="13" width="48" height="36" rx="11" fill="#16233a" stroke="#86c1ff" stroke-width="2"/>
+                            <rect x="3" y="25" width="5" height="12" rx="2.5" fill="#86c1ff"/>
+                            <rect x="56" y="25" width="5" height="12" rx="2.5" fill="#86c1ff"/>
+                            <rect x="15" y="21" width="34" height="20" rx="7" fill="#0b1322"/>
+                            <g class="cw-eyes"><circle cx="25" cy="31" r="3.4" fill="#86c1ff"/><circle cx="39" cy="31" r="3.4" fill="#86c1ff"/></g>
+                            <path d="M20 54 h24" stroke="#4c9cff" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <div class="cw-agent-head"><b>Coding agent</b><span>new teammate</span></div>
+                        <div class="cw-editor">
+                            <div class="cw-tab">result.py</div>
+                            <code class="cw-l1"><i>1</i>result.stdout = out</code>
+                            <code class="cw-l2"><i>2</i>result.stderr = err</code>
+                            <code class="cw-l3"><i>3</i>result.output = interleaved</code>
+                        </div>
+                        <div class="cw-status"><span class="cw-s1">reading CLK-201…</span><span class="cw-s2">checking DOC-11 v3…</span><span class="cw-s3">asking Lucy…</span><span class="cw-s4">running tests…</span><span class="cw-s5">ready to deliver</span></div>
+                    </div>
+                    <div class="cw-out"><span class="cw-ico">⇢</span>Repository patch <i>→</i> F2P / P2P tests <b>✓</b></div>
                 </div>
                 <div class="visual-caption"><span>26 digital employees per task</span><span>·</span><span>fixed executable contract</span></div>
+                <button class="cw-motion" type="button" aria-label="Pause task animation" aria-pressed="false" hidden>Pause animation</button>
             </div>
         </section>
 
@@ -401,8 +441,8 @@
                     <figcaption><b>Figure 3</b> An owner clarification changes a timesheet export implementation in a recorded run (task 094, Kimai). The owner specifies that the user’s preference must be evaluated on every render, and the agent updates its implementation and tests.</figcaption>
                 </figure>
                 <figure class="paper-fig paper-fig-wide">
-                    <button type="button" class="paper-fig-open" data-fig="4" aria-label="Enlarge Figure 4"><img src="static/figures/fig04.webp" alt="Eight workplace situations represented in SWE-CoWork" loading="lazy" decoding="async"></button>
-                    <figcaption><b>Figure 4</b> Eight workplace situations represented in SWE-CoWork: scattered requirements, divided knowledge, superseded records, uncertain provenance, late-arriving evidence, scope distractors, multi-turn clarification, and investigation interleaved with coding.</figcaption>
+                    <button type="button" class="paper-fig-open" data-fig="4" aria-label="Enlarge Figure 4"><img src="static/figures/fig04.webp" alt="Five workplace information challenges: late evidence, superseded conclusions, ambiguous provenance, scope distractors, and fragmented ownership" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 4</b> Five workplace information challenges and the judgments they require, organized by the timing, provenance, and authority of evidence. The panels use schematic situations and condensed workplace-record examples.</figcaption>
                 </figure>
                 <figure class="paper-fig paper-fig-wide">
                     <button type="button" class="paper-fig-open" data-fig="5" aria-label="Enlarge Figure 5"><img src="static/figures/fig05.webp" alt="F2P against requirement acquisition and tool calls across eleven models" loading="lazy" decoding="async"></button>

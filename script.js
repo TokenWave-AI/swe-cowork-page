@@ -141,7 +141,7 @@
             copy: "Pass rate requires every F2P and every P2P node to pass in the same run. Nine of the eleven models complete at most one task."
         }
     };
-    var metricButtons = document.querySelectorAll(".metric-button");
+    var metricButtons = document.querySelectorAll(".metric-button[data-metric]");
     var modelRows = Array.prototype.slice.call(document.querySelectorAll(".model-row"));
     var resultChart = document.getElementById("result-chart");
     var metricNumber = document.getElementById("metric-number");
@@ -332,10 +332,38 @@
         });
     }
 
-    // A small amount of depth in the hero map keeps the opening frame alive.
+    // Keep the task illustration readable when motion is paused or reduced.
     var heroVisual = document.querySelector(".hero-visual");
-    if (heroVisual && !reduceMotion) {
+    if (heroVisual) {
+        var heroMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        var motionButton = heroVisual.querySelector(".cw-motion");
+        var heroWires = heroVisual.querySelector(".cw-wires");
+        var heroPaused = false;
+        var syncHeroMotion = function () {
+            var paused = heroPaused || heroMotion.matches;
+            heroVisual.classList.toggle("is-paused", paused);
+            if (heroWires) {
+                if (heroMotion.matches) { heroWires.setCurrentTime(0); }
+                if (paused) { heroWires.pauseAnimations(); }
+                else { heroWires.unpauseAnimations(); }
+            }
+            if (motionButton) {
+                motionButton.hidden = heroMotion.matches;
+                motionButton.setAttribute("aria-pressed", String(heroPaused));
+                motionButton.setAttribute("aria-label", heroPaused ? "Resume task animation" : "Pause task animation");
+                motionButton.textContent = heroPaused ? "Resume animation" : "Pause animation";
+            }
+        };
+        if (motionButton) {
+            motionButton.addEventListener("click", function () {
+                heroPaused = !heroPaused;
+                syncHeroMotion();
+            });
+        }
+        heroMotion.addEventListener("change", syncHeroMotion);
+        syncHeroMotion();
         heroVisual.addEventListener("pointermove", function (event) {
+            if (heroVisual.classList.contains("is-paused") || event.pointerType === "touch") { return; }
             var rect = heroVisual.getBoundingClientRect();
             var x = (event.clientX - rect.left) / rect.width - 0.5;
             var y = (event.clientY - rect.top) / rect.height - 0.5;
