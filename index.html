@@ -147,16 +147,37 @@
 
                 <div class="comparison-arrow" aria-hidden="true"><span>→</span><small>same objective</small></div>
 
-                <article class="comparison-card comparison-new">
+                <article class="comparison-card comparison-new step-playback" id="work-playback" aria-label="SWE-CoWork workplace workflow">
                     <div class="card-label"><span class="card-dot dot-accent"></span> SWE-CoWork <em>work already in progress</em></div>
                     <div class="work-window">
                         <div class="handoff"><span class="handoff-tag">Handoff</span>“Finish the compatibility work.”<small>Six minutes of context. The previous owner is unavailable.</small></div>
                         <ol class="work-steps">
-                            <li class="work-step is-done"><span>01</span><b>Investigate</b><small>board · docs · history</small></li>
-                            <li class="work-step is-active"><span>02</span><b>Ask with context</b><small>find the owner</small></li>
-                            <li class="work-step"><span>03</span><b>Build &amp; check</b><small>patch · CI · tests</small></li>
-                            <li class="work-step"><span>04</span><b>Revisit &amp; deliver</b><small>close the open loop</small></li>
+                            <li><button class="work-step is-active" type="button" aria-pressed="true" aria-controls="work-scenes"><span class="work-step-top">01<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6"/></svg></span><b>Investigate</b><small>board · docs · history</small></button></li>
+                            <li><button class="work-step" type="button" aria-pressed="false" aria-controls="work-scenes"><span class="work-step-top">02<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H9l-5 4zM8 8h8M8 12h5"/></svg></span><b>Ask with context</b><small>find the owner</small></button></li>
+                            <li><button class="work-step" type="button" aria-pressed="false" aria-controls="work-scenes"><span class="work-step-top">03<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 6-5 6 5 6m10-12 5 6-5 6M14 4l-4 16"/></svg></span><b>Build &amp; check</b><small>patch · CI · tests</small></button></li>
+                            <li><button class="work-step" type="button" aria-pressed="false" aria-controls="work-scenes"><span class="work-step-top">04<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2-5M20 3v5h-5m-7 4 3 3 5-6"/></svg></span><b>Revisit &amp; deliver</b><small>close the open loop</small></button></li>
                         </ol>
+                        <div class="work-scenes" id="work-scenes" aria-label="Illustrative workplace activity">
+                            <div class="work-scene is-current" aria-hidden="false">
+                                <div class="work-event"><span>Board</span><b>CLK-201 · Output capture</b></div>
+                                <div class="work-event"><span>Docs</span><b>DOC-11 · compare revisions</b></div>
+                                <div class="work-event"><span>History</span><b>Trace the caller and prior behavior</b></div>
+                            </div>
+                            <div class="work-scene work-conversation" aria-hidden="true">
+                                <div class="work-event"><span>Agent</span><b>Which output contract applies?</b></div>
+                                <div class="work-event work-reply"><span>Owner</span><b>Keep stdout and stderr separate. Preserve write order.</b></div>
+                            </div>
+                            <div class="work-scene work-code" aria-hidden="true">
+                                <div class="work-event"><span>Patch</span><b>result.py</b></div>
+                                <code>result.stdout = out</code><code>result.stderr = err</code><code>result.output = interleaved</code>
+                            </div>
+                            <div class="work-scene work-delivery" aria-hidden="true">
+                                <div class="work-event"><span>Revisit</span><b>Resolve the remaining question</b></div>
+                                <div class="work-event"><span>Check</span><b>Verify the patch and output behavior</b></div>
+                                <div class="work-event"><span>Deliver</span><b>Record changes and remaining work</b></div>
+                            </div>
+                        </div>
+                        <div class="playback-controls"><span><i class="playback-dot" aria-hidden="true"></i>Illustrative workflow</span><button class="playback-toggle" type="button" aria-pressed="false" hidden>Pause animation</button></div>
                     </div>
                     <div class="card-foot"><span>organization + evidence</span><i>→</i><b>verified delivery</b></div>
                 </article>
@@ -176,7 +197,7 @@
                     <p>There is no prescribed order. New evidence can change the agent’s picture of the work, so a good run keeps circling between people, records, code, and checks.</p>
                 </div>
 
-                <div class="storyboard reveal">
+                <div class="storyboard reveal step-playback" id="story-playback" aria-label="Six stages of the workplace task loop">
                     <div class="story-nav" role="tablist" aria-label="SWE-CoWork task stages">
                         <button class="story-step is-selected" type="button" role="tab" aria-selected="true" data-step="0">
                             <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="step-number">01</span><span class="step-name">Orient</span><span class="step-detail">find the first lead</span>
@@ -197,21 +218,27 @@
                             <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5"/><path d="M12 12v9"/><path d="M7.7 5.2l8.5 4.6"/></svg></span><span class="step-number">06</span><span class="step-name">Deliver</span><span class="step-detail">account for the work</span>
                         </button>
                     </div>
-                    <div class="story-stage" role="tabpanel">
+                    <div class="story-stage" id="story-panel" role="tabpanel" tabindex="0">
                         <div class="story-stage-top">
-                            <div><span class="story-stage-index" id="story-index">01</span><span class="story-stage-label">task 094 · Kimai upgrade</span></div>
-                            <span class="story-time" id="story-time">0.00 h</span>
+                            <div><span class="story-stage-index" id="story-index">01</span><span class="story-stage-label">illustrative task loop</span></div>
+                            <span class="story-time" id="story-time">01 / 06</span>
                         </div>
                         <div class="story-visual" id="story-visual">
                             <div class="story-network">
                                 <div class="network-halo halo-one"></div>
                                 <div class="network-halo halo-two"></div>
-                                <div class="network-agent"><span class="agent-icon" id="story-icon"></span><b id="story-focus">orient</b></div>
-                                <div class="network-node network-node-a" data-node="board"><i>▦</i><span>board</span></div>
-                                <div class="network-node network-node-b" data-node="docs"><i>▤</i><span>docs</span></div>
-                                <div class="network-node network-node-c" data-node="colleague"><i>♙</i><span>colleague</span></div>
-                                <div class="network-node network-node-d" data-node="tests"><i>⌁</i><span>tests</span></div>
-                                <div class="network-arc arc-one"></div><div class="network-arc arc-two"></div><div class="network-arc arc-three"></div><div class="network-arc arc-four"></div>
+                                <div class="network-agent">
+                                    <svg class="loop-bot" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 5v8" stroke="#86c1ff" stroke-width="2"/><circle cx="32" cy="5" r="3" fill="#42c99b"/><rect x="8" y="13" width="48" height="36" rx="11" fill="#16233a" stroke="#86c1ff" stroke-width="2"/><path d="M5 27v8m54-8v8" stroke="#86c1ff" stroke-width="5" stroke-linecap="round"/><rect x="15" y="21" width="34" height="20" rx="7" fill="#0b1322"/><g class="loop-eyes" fill="#86c1ff"><circle cx="25" cy="31" r="3.4"/><circle cx="39" cy="31" r="3.4"/></g></svg>
+                                    <span class="agent-icon" id="story-icon"></span><b id="story-focus">orient</b>
+                                </div>
+                                <div class="network-node network-node-a" data-node="board"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16M6 8h0M12 8h0M18 8h0"/></svg><span>board</span></div>
+                                <div class="network-node network-node-b" data-node="docs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h6"/></svg><span>docs</span></div>
+                                <div class="network-node network-node-c" data-node="colleague"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M5 21v-3a7 7 0 0 1 14 0v3"/></svg><span>colleague</span></div>
+                                <div class="network-node network-node-d" data-node="tests"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 6 6-6 6M13 18h7"/></svg><span>tests</span></div>
+                                <svg class="network-wires" viewBox="0 0 300 230" preserveAspectRatio="none" aria-hidden="true">
+                                    <g class="network-tracks"><path d="M80 27C125 27 150 65 150 115"/><path d="M250 54C200 54 150 65 150 115"/><path d="M65 195C115 195 150 165 150 115"/><path d="M220 212C185 212 150 165 150 115"/></g>
+                                    <path class="network-signal" data-node="board" pathLength="100" d="M80 27C125 27 150 65 150 115"/><path class="network-signal" data-node="docs" pathLength="100" d="M250 54C200 54 150 65 150 115"/><path class="network-signal" data-node="colleague" pathLength="100" d="M65 195C115 195 150 165 150 115"/><path class="network-signal" data-node="tests" pathLength="100" d="M220 212C185 212 150 165 150 115"/>
+                                </svg>
                             </div>
                             <div class="story-copy">
                                 <div class="story-copy-kicker" id="story-kicker">START WITH A MAP</div>
@@ -221,6 +248,7 @@
                             </div>
                         </div>
                         <div class="story-progress"><span id="story-progress"></span></div>
+                        <div class="playback-controls"><span><i class="playback-dot" aria-hidden="true"></i>Select any stage to explore</span><button class="playback-toggle" type="button" aria-pressed="false" hidden>Pause animation</button></div>
                     </div>
                 </div>
             </div>

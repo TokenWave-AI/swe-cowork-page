@@ -3,7 +3,8 @@
 
     document.documentElement.classList.add("js");
 
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var playbackMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var reduceMotion = playbackMotion.matches;
 
     // Reveal sections as the story enters the viewport.
     var revealItems = document.querySelectorAll(".reveal");
@@ -20,14 +21,121 @@
         revealItems.forEach(function (item) { item.classList.add("is-visible"); });
     }
 
-    // The task loop is a small, readable story rather than a static list.
+    // Advance visible workflows; a manual selection stays put for reading.
+    function createStepPlayback(root, buttons, render, duration, viewportTarget, label) {
+        if (!root || !buttons.length) return;
+        var toggle = root.querySelector(".playback-toggle");
+        var current = 0;
+        var elapsed = 0;
+        var lastFrame = null;
+        var frame = null;
+        var userPaused = false;
+        var inView = !("IntersectionObserver" in window);
+
+        function show(index) {
+            current = index;
+            root.dataset.activeStep = String(index);
+            render(index);
+        }
+
+        function tick(now) {
+            if (lastFrame !== null) elapsed += now - lastFrame;
+            lastFrame = now;
+            if (elapsed >= duration) {
+                elapsed %= duration;
+                show((current + 1) % buttons.length);
+            }
+            root.style.setProperty("--step-progress", String(elapsed / duration));
+            frame = window.requestAnimationFrame(tick);
+        }
+
+        function sync() {
+            var running = !userPaused && !playbackMotion.matches && inView && !document.hidden;
+            root.classList.toggle("is-playing", running);
+            root.classList.toggle("is-paused", !running);
+            toggle.hidden = playbackMotion.matches;
+            toggle.textContent = userPaused ? "Resume animation" : "Pause animation";
+            toggle.setAttribute("aria-pressed", String(userPaused));
+            toggle.setAttribute("aria-label", (userPaused ? "Resume " : "Pause ") + label + " animation");
+            if (running && frame === null) {
+                lastFrame = null;
+                frame = window.requestAnimationFrame(tick);
+            } else if (!running && frame !== null) {
+                window.cancelAnimationFrame(frame);
+                frame = null;
+                lastFrame = null;
+            }
+        }
+
+        function select(index) {
+            userPaused = true;
+            elapsed = 0;
+            lastFrame = null;
+            root.style.setProperty("--step-progress", "0");
+            show(index);
+            sync();
+        }
+
+        buttons.forEach(function (button, index) {
+            button.addEventListener("click", function () { select(index); });
+            button.addEventListener("keydown", function (event) {
+                var next;
+                if (event.key === "ArrowRight" || event.key === "ArrowDown") next = (index + 1) % buttons.length;
+                else if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = (index + buttons.length - 1) % buttons.length;
+                else if (event.key === "Home") next = 0;
+                else if (event.key === "End") next = buttons.length - 1;
+                else return;
+                event.preventDefault();
+                select(next);
+                buttons[next].focus();
+            });
+        });
+        root.addEventListener("focusin", function (event) {
+            if (event.target === toggle) return;
+            userPaused = true;
+            sync();
+        });
+        toggle.addEventListener("click", function () {
+            userPaused = !userPaused;
+            sync();
+        });
+        if ("IntersectionObserver" in window) {
+            var observer = new IntersectionObserver(function (entries) {
+                inView = entries[0].isIntersecting && entries[0].intersectionRatio >= 0.15;
+                sync();
+            }, { threshold: [0, 0.15] });
+            observer.observe(viewportTarget || root);
+        }
+        document.addEventListener("visibilitychange", sync);
+        playbackMotion.addEventListener("change", sync);
+        show(0);
+        sync();
+    }
+
+    var workPlayback = document.getElementById("work-playback");
+    var workButtons = document.querySelectorAll(".work-step");
+    var workScenes = document.querySelectorAll(".work-scene");
+    function renderWork(index) {
+        workButtons.forEach(function (button, buttonIndex) {
+            button.classList.toggle("is-active", buttonIndex === index);
+            button.classList.toggle("is-done", buttonIndex < index);
+            button.setAttribute("aria-pressed", String(buttonIndex === index));
+        });
+        workScenes.forEach(function (scene, sceneIndex) {
+            scene.classList.toggle("is-current", sceneIndex === index);
+            scene.setAttribute("aria-hidden", String(sceneIndex !== index));
+        });
+        workPlayback.classList.toggle("is-complete", index === workButtons.length - 1);
+    }
+    createStepPlayback(workPlayback, workButtons, renderWork, 4800, document.querySelector(".work-window"), "workplace workflow");
+
+    // The task loop connects each stage to the evidence it needs.
     var story = [
         {
             kicker: "START WITH A MAP",
             title: "Read the handoff. Locate the work.",
             copy: "The agent identifies the target project, scope, and first leads before it spends effort on a patch.",
             chips: ["onboarding note", "repo state", "scope"],
-            time: "0.00 h",
             focus: "orient",
             nodes: "board docs"
         },
@@ -36,7 +144,6 @@
             title: "Search across the workplace.",
             copy: "Boards, documents, chat, reviews, and CI history carry partial answers. The agent has to reconcile versions and provenance.",
             chips: ["board", "docs", "CI history"],
-            time: "0.42 h",
             focus: "investigate",
             nodes: "board docs tests"
         },
@@ -45,7 +152,6 @@
             title: "Ask the person who owns the answer.",
             copy: "A precise question with context opens the right thread. A referral can reveal the next owner — or the requirement can stay out of reach.",
             chips: ["owner", "referral", "follow-up"],
-            time: "0.96 h",
             focus: "ask",
             nodes: "colleague"
         },
@@ -54,7 +160,6 @@
             title: "Change the repository. Check the contract.",
             copy: "The patch has to satisfy new behaviors while preserving the ones that already work. Code and tests are part of the same loop.",
             chips: ["patch", "F2P", "P2P"],
-            time: "1.67 h",
             focus: "build",
             nodes: "tests"
         },
@@ -63,7 +168,6 @@
             title: "Revisit the work when the facts move.",
             copy: "A late trace, corrected version, or new reply can overturn the first diagnosis. A reliable agent changes course instead of defending it.",
             chips: ["new trace", "revision", "scope"],
-            time: "2.54 h",
             focus: "revise",
             nodes: "colleague tests"
         },
@@ -72,7 +176,6 @@
             title: "Deliver the change — and the account of it.",
             copy: "A finished run reports the status of every requirement: what was established, what changed, which checks passed, and which questions remain open.",
             chips: ["delivery note", "checks", "open work"],
-            time: "3.40 h",
             focus: "deliver",
             nodes: "board docs colleague tests"
         }
@@ -89,7 +192,30 @@
     var storyProgress = document.getElementById("story-progress");
     var storyIcon = document.getElementById("story-icon");
     var storyNodes = document.querySelectorAll(".network-node");
+    var storySignals = document.querySelectorAll(".network-signal");
     var storyVisual = document.getElementById("story-visual");
+    var storyPanel = document.getElementById("story-panel");
+    var storyCopy = document.querySelector(".story-copy");
+
+    // Hidden copies reserve the tallest stage at every width, without fixed heights.
+    var storyCopyStack = document.createElement("div");
+    storyCopyStack.className = "story-copy-stack";
+    storyCopy.parentNode.insertBefore(storyCopyStack, storyCopy);
+    storyCopyStack.appendChild(storyCopy);
+    story.forEach(function (item, index) {
+        storyButtons[index].id = "story-tab-" + index;
+        storyButtons[index].setAttribute("aria-controls", "story-panel");
+        var reserve = storyCopy.cloneNode(true);
+        reserve.classList.add("story-copy-reserve");
+        reserve.setAttribute("aria-hidden", "true");
+        reserve.setAttribute("inert", "");
+        reserve.querySelectorAll("[id]").forEach(function (element) { element.removeAttribute("id"); });
+        reserve.querySelector(".story-copy-kicker").textContent = item.kicker;
+        reserve.querySelector("h3").textContent = item.title;
+        reserve.querySelector("p").textContent = item.copy;
+        reserve.querySelector(".story-chips").innerHTML = item.chips.map(function (chip) { return "<span>" + chip + "</span>"; }).join("");
+        storyCopyStack.appendChild(reserve);
+    });
 
     function renderStory(index) {
         var item = story[index];
@@ -98,9 +224,11 @@
             var selected = buttonIndex === index;
             button.classList.toggle("is-selected", selected);
             button.setAttribute("aria-selected", selected ? "true" : "false");
+            button.tabIndex = selected ? 0 : -1;
         });
+        storyPanel.setAttribute("aria-labelledby", storyButtons[index].id);
         storyIndex.textContent = String(index + 1).padStart(2, "0");
-        storyTime.textContent = item.time;
+        storyTime.textContent = String(index + 1).padStart(2, "0") + " / 06";
         storyKicker.textContent = item.kicker;
         storyTitle.textContent = item.title;
         storyDescription.textContent = item.copy;
@@ -110,21 +238,21 @@
         storyNodes.forEach(function (node) {
             node.classList.toggle("is-lit", item.nodes.split(" ").indexOf(node.dataset.node) !== -1);
         });
+        storySignals.forEach(function (signal) {
+            signal.classList.toggle("is-lit", item.nodes.split(" ").indexOf(signal.dataset.node) !== -1);
+        });
         storyIcon.classList.remove("is-swapping");
+        storyCopy.classList.remove("is-entering");
         void storyIcon.offsetWidth;
         storyIcon.classList.add("is-swapping");
+        storyCopy.classList.add("is-entering");
         storyChips.innerHTML = item.chips.map(function (chip) {
             return "<span>" + chip + "</span>";
         }).join("");
         storyProgress.style.width = ((index + 1) / story.length * 100) + "%";
     }
 
-    storyButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            renderStory(Number(button.dataset.step));
-        });
-    });
-    renderStory(0);
+    createStepPlayback(document.getElementById("story-playback"), storyButtons, renderStory, 6500, storyVisual, "task loop");
 
     // Outcome chart: switch between partial delivery, preservation, and complete delivery.
     var metricCopy = {
