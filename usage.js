@@ -6,8 +6,7 @@
     var metrics = {
         calls: { key: "median_model_calls", label: "Model calls", divisor: 1, range: [50, 1200], ticks: [200, 400, 600, 800, 1000], copy: "Each model call is one request to the model. A run can contain many calls before the agent hands over its work." },
         input: { key: "median_input_tokens", label: "Input tokens", divisor: 1e6, range: [10, 65], ticks: [20, 30, 40, 50, 60], copy: "Input usage includes tokens processed across repeated calls within a run. Seed Evolving’s input median is approximate." },
-        output: { key: "median_output_tokens", label: "Output tokens", divisor: 1e6, range: [0.035, 5], ticks: [0.05, 0.1, 0.3, 1, 3], log: true, copy: "Output usage includes reasoning tokens. Seed Evolving has no reported output median and is omitted from this view." },
-        reasoning: { key: "median_reasoning_tokens", label: "Reasoning tokens", divisor: 1e6, range: [0.006, 5], ticks: [0.01, 0.03, 0.1, 0.3, 1, 3], log: true, copy: "Reasoning is part of output usage. Seed Evolving has no reported reasoning median and is omitted from this view." },
+        output: { key: "median_output_tokens", label: "Output tokens", divisor: 1e6, range: [0.035, 5], ticks: [0.05, 0.1, 0.3, 1, 3], log: true, copy: "Output usage counts tokens generated within a run. Seed Evolving has no reported output median and is omitted from this view." },
         tools: { key: "median_tool_calls", label: "Tool calls", divisor: 1, range: [110, 2500], ticks: [200, 500, 1000, 2000], log: true, copy: "These tool-call medians come from the usage snapshots. The requirement-acquisition chart above uses its own run archive." },
         compactions: { key: "median_compactions", label: "Context compactions", divisor: 1, range: [0.6, 65], ticks: [1, 2, 5, 10, 20, 50], log: true, copy: "Compactions summarize the conversation to free context space. Each value is the median count within a run." }
     };
@@ -147,7 +146,7 @@
         select(visible.find(function (model) { return model.id === selected; }) || visible[0]);
     }
 
-    fetch("static/data/usage-medians.json").then(function (response) {
+    fetch("static/data/usage-medians.json?v=20261022-usage-v2").then(function (response) {
         if (!response.ok) throw new Error("Usage data could not be loaded");
         return response.json();
     }).then(function (data) {
@@ -161,7 +160,7 @@
             document.getElementById("usage-models").appendChild(button);
             var row = document.createElement("tr"), name = document.createElement("th");
             name.scope = "row"; name.textContent = model.name; row.appendChild(name);
-            ["calls", "input", "output", "reasoning", "tools", "compactions"].forEach(function (key) {
+            ["calls", "input", "output", "tools", "compactions"].forEach(function (key) {
                 var cell = document.createElement("td"); cell.textContent = format(model, metrics[key], false); row.appendChild(cell);
             });
             var score = document.createElement("td"); score.textContent = model.f2p_percent.toFixed(2) + "%"; row.appendChild(score);
