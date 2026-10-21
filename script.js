@@ -28,7 +28,8 @@
             copy: "The agent identifies the target project, scope, and first leads before it spends effort on a patch.",
             chips: ["onboarding note", "repo state", "scope"],
             time: "0.00 h",
-            focus: "orient"
+            focus: "orient",
+            nodes: "board docs"
         },
         {
             kicker: "RECONSTRUCT THE STATE",
@@ -36,7 +37,8 @@
             copy: "Boards, documents, chat, reviews, and CI history carry partial answers. The agent has to reconcile versions and provenance.",
             chips: ["board", "docs", "CI history"],
             time: "0.42 h",
-            focus: "investigate"
+            focus: "investigate",
+            nodes: "board docs tests"
         },
         {
             kicker: "MAKE THE QUESTION COUNT",
@@ -44,7 +46,8 @@
             copy: "A precise question with context opens the right thread. A referral can reveal the next owner — or the requirement can stay out of reach.",
             chips: ["owner", "referral", "follow-up"],
             time: "0.96 h",
-            focus: "ask"
+            focus: "ask",
+            nodes: "colleague"
         },
         {
             kicker: "TURN EVIDENCE INTO BEHAVIOR",
@@ -52,7 +55,8 @@
             copy: "The patch has to satisfy new behaviors while preserving the ones that already work. Code and tests are part of the same loop.",
             chips: ["patch", "F2P", "P2P"],
             time: "1.67 h",
-            focus: "build"
+            focus: "build",
+            nodes: "tests"
         },
         {
             kicker: "STAY OPEN TO NEW EVIDENCE",
@@ -60,7 +64,8 @@
             copy: "A late trace, corrected version, or new reply can overturn the first diagnosis. A reliable agent changes course instead of defending it.",
             chips: ["new trace", "revision", "scope"],
             time: "2.54 h",
-            focus: "revise"
+            focus: "revise",
+            nodes: "colleague tests"
         },
         {
             kicker: "MAKE THE HANDOFF TRUSTWORTHY",
@@ -68,7 +73,8 @@
             copy: "A finished run reports the status of every requirement: what was established, what changed, which checks passed, and which questions remain open.",
             chips: ["delivery note", "checks", "open work"],
             time: "3.40 h",
-            focus: "deliver"
+            focus: "deliver",
+            nodes: "board docs colleague tests"
         }
     ];
 
@@ -81,6 +87,9 @@
     var storyChips = document.getElementById("story-chips");
     var storyFocus = document.getElementById("story-focus");
     var storyProgress = document.getElementById("story-progress");
+    var storyIcon = document.getElementById("story-icon");
+    var storyNodes = document.querySelectorAll(".network-node");
+    var storyVisual = document.getElementById("story-visual");
 
     function renderStory(index) {
         var item = story[index];
@@ -96,6 +105,14 @@
         storyTitle.textContent = item.title;
         storyDescription.textContent = item.copy;
         storyFocus.textContent = item.focus;
+        storyIcon.innerHTML = storyButtons[index].querySelector(".step-icon").innerHTML;
+        storyVisual.dataset.stage = item.focus;
+        storyNodes.forEach(function (node) {
+            node.classList.toggle("is-lit", item.nodes.split(" ").indexOf(node.dataset.node) !== -1);
+        });
+        storyIcon.classList.remove("is-swapping");
+        void storyIcon.offsetWidth;
+        storyIcon.classList.add("is-swapping");
         storyChips.innerHTML = item.chips.map(function (chip) {
             return "<span>" + chip + "</span>";
         }).join("");
