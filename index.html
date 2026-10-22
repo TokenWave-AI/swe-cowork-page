@@ -383,6 +383,7 @@
                         </div>
                         <a class="usage-paper-link" href="#usage-figure">View the figure ↓</a>
                     </div>
+                    <p class="workplace-copy">Claude-Opus-5.5 and GPT-6 Astra make a similar number of model calls, but Claude-Opus-5.5 uses about twice the input. The difference comes from context windows. GPT-6 Astra’s window is about 258K tokens; its median peak context is 245K, so most runs fill the window and are compacted. Claude-Opus-5.5 has a 1M-token window and a median peak of 483K, never compacts, and carries a median of 296K input tokens per call against 136K for GPT-6 Astra.</p>
                     <div class="metric-switch usage-switch" role="group" aria-label="Choose usage metric">
                         <button type="button" class="metric-button" data-usage="calls" aria-pressed="false" disabled>Model calls</button>
                         <button type="button" class="metric-button is-active" data-usage="input" aria-pressed="true" disabled>Input tokens</button>
