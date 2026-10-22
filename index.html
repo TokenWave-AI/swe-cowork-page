@@ -12,7 +12,7 @@
     <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
     <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20261022-usage-v8">
+    <link rel="stylesheet" href="styles.css?v=20261022-usage-v9">
 </head>
 <body>
     <div class="page-grain" aria-hidden="true"></div>
@@ -31,7 +31,7 @@
             </nav>
             <div class="header-links">
                 <a class="header-link" href="https://github.com/TokenWave-AI/swe-cowork-bench" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
-                <a class="header-link" href="static/SWE-CoWork.pdf?v=20261022-usage-v8" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a>
+                <a class="header-link" href="static/SWE-CoWork.pdf?v=20261022-usage-v9" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a>
             </div>
         </div>
     </header>
@@ -44,7 +44,7 @@
                 <p class="hero-lede">SWE-CoWork places a coding agent inside an organization of digital employees. Requirements sit with accountable colleagues and project records, and each one is tied to executable tests, so we can follow it from the first question to the final handoff.</p>
                 <div class="hero-actions">
                     <a class="button button-primary" href="#shift">Explore the benchmark <span aria-hidden="true">↓</span></a>
-                    <a class="button button-quiet" href="static/SWE-CoWork.pdf?v=20261022-usage-v8" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+                    <a class="button button-quiet" href="static/SWE-CoWork.pdf?v=20261022-usage-v9" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
                     <a class="button button-quiet" href="https://github.com/TokenWave-AI/swe-cowork-bench" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
                 </div>
                 <div class="hero-note"><span class="status-dot"></span> SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations</div>
@@ -383,7 +383,8 @@
                         </div>
                         <a class="usage-paper-link" href="#usage-figure">View the figure ↓</a>
                     </div>
-                    <p class="workplace-copy">Claude-Opus-5.5 and GPT-6 Astra make a similar number of model calls, but Claude-Opus-5.5 uses about twice the input. The difference comes from context windows. GPT-6 Astra’s window is about 258K tokens; its median peak context is 245K, so most runs fill the window and are compacted. Claude-Opus-5.5 has a 1M-token window and a median peak of 483K, never compacts, and carries a median of 296K input tokens per call against 136K for GPT-6 Astra.</p>
+                    <p class="workplace-copy">F2P does not rise with the amount of interaction. The weakest models, such as Kimi K3 and GLM 5.2, make few calls (about 300 tool calls) and stop well within the budget, at 24–27% F2P. The middle group, from Seed Evolving to DeepSeek V4.1 Flash, makes 500 to 1,600 tool calls, compacts its context up to 33 times, and reaches 28–39%. The two leading models return to low activity, with fewer than 200 tool calls and at most one compaction, and reach 63–64%. Weaker models may lack the ability to explore in depth, mid-tier models sustain long interaction, and the strongest models gather what they need with fewer actions.</p>
+                    <p class="workplace-copy">Claude-Opus-5.5 still uses about twice GPT-6 Astra’s input because of its context window. GPT-6 Astra’s window is about 258K tokens and its median peak context is 245K, so most runs are compacted; Claude-Opus-5.5 has a 1M-token window, a median peak of 483K, and never compacts.</p>
                     <div class="metric-switch usage-switch" role="group" aria-label="Choose usage metric">
                         <button type="button" class="metric-button" data-usage="calls" aria-pressed="false" disabled>Model calls</button>
                         <button type="button" class="metric-button is-active" data-usage="input" aria-pressed="true" disabled>Input tokens</button>
@@ -409,10 +410,9 @@
                     <div class="usage-models" id="usage-models" role="group" aria-label="Select a model to inspect"></div>
                     <p class="usage-note">Usage summaries cover nine of the eleven evaluated models. Token medians are unavailable for Seed 2.1 Pro and DeepSeek V4 Pro. F2P uses the full 101-task release; usage cohorts differ. Dots and short lines mark exact values where nearby logos are offset. M = 1,000,000 tokens.</p>
                     <div class="usage-downloads">
-                        <a href="static/figures/usage_medians_vs_f2p.pdf?v=20261022-usage-v8" target="_blank" rel="noopener">Usage figure PDF ↗</a>
-                        <a href="static/figures/tool_compaction_vs_f2p.pdf?v=20261022-usage-v8" target="_blank" rel="noopener">Tool use figure PDF ↗</a>
-                        <a href="static/figures/usage_medians_vs_f2p_20runs.pdf?v=20261022-usage-v8" target="_blank" rel="noopener">Additional usage comparison ↗</a>
-                        <a href="static/data/usage-medians.json?v=20261022-usage-v8" download>Median data ↓</a>
+                        <a href="static/figures/usage_medians_vs_f2p.pdf?v=20261022-usage-v9" target="_blank" rel="noopener">Usage figure PDF ↗</a>
+                        <a href="static/figures/tool_compaction_vs_f2p.pdf?v=20261022-usage-v9" target="_blank" rel="noopener">Tool use figure PDF ↗</a>
+                        <a href="static/data/usage-medians.json?v=20261022-usage-v9" download>Median data ↓</a>
                     </div>
                     <details class="acq-table usage-table">
                         <summary>Show all usage medians</summary>
@@ -424,25 +424,6 @@
                             </table>
                         </div>
                         <p class="acq-table-note">≈ marks approximate input usage. — means unavailable.</p>
-                    </details>
-                    <details class="acq-table usage-table" id="usage-additional-table">
-                        <summary>Show the additional model-call and token medians</summary>
-                        <div class="acq-table-scroll">
-                            <table>
-                                <caption class="usage-table-caption">Seven-model comparison in Figure 8</caption>
-                                <thead><tr><th scope="col">Model</th><th scope="col">Model calls</th><th scope="col">Input (M)</th><th scope="col">Output (M)</th><th scope="col">F2P</th></tr></thead>
-                                <tbody>
-                                <tr><th scope="row">Claude-Opus-5.5</th><td>174</td><td>47.57</td><td>0.210</td><td>63.84%</td></tr>
-                                <tr><th scope="row">GPT-6 Astra</th><td>152</td><td>20.32</td><td>0.102</td><td>62.91%</td></tr>
-                                <tr><th scope="row">Qwen3.8-Max</th><td>619</td><td>43.66</td><td>0.825</td><td>35.70%</td></tr>
-                                <tr><th scope="row">GLM 5.3</th><td>1,175</td><td>91.46</td><td>0.459</td><td>31.27%</td></tr>
-                                <tr><th scope="row">DeepSeek V4.1 Flash</th><td>1,060</td><td>69.46</td><td>2.546</td><td>28.20%</td></tr>
-                                <tr><th scope="row">Kimi K3</th><td>245</td><td>17.53</td><td>0.130</td><td>27.08%</td></tr>
-                                <tr><th scope="row">GLM 5.2</th><td>312</td><td>27.92</td><td>0.050</td><td>24.40%</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="acq-table-note">M = 1,000,000 tokens. <a href="static/data/usage-additional-medians.json?v=20261022-usage-v8" download>Download these medians ↓</a></p>
                     </details>
                     <noscript><p class="usage-note">The usage figures and their PDFs are available in the <a href="#usage-figure">figure gallery</a>.</p></noscript>
                 </section>
@@ -456,10 +437,10 @@
                         <a class="usage-paper-link" href="#workplace-figure">Enlarge the figure ↓</a>
                     </div>
                     <p class="workplace-copy">How much a model explores does not predict delivery. Claude-Opus-5.5 makes a median of only 56 workplace queries per run, while DeepSeek V4.1 Flash makes 572. The two leading models reach their first code edit at tool calls 67 and 82, still about a third of the way into their short runs. Kimi K3 and GLM 5.2 query and edit on a similar schedule but reach less than half the F2P. The clearest difference is colleague contact: they send medians of 8 and 5 messages, against 19.5 for Claude-Opus-5.5 and 18.5 for GPT-6 Astra. Asking colleagues is not sufficient on its own: GLM 5.3 sends the most messages, 21, and reaches 31.27% F2P.</p>
-                    <a class="workplace-preview" href="#workplace-figure" aria-label="View the workplace exploration figure in the gallery"><img src="static/figures/workplace_exploration_vs_f2p.webp?v=20261022-usage-v8" alt="Five panels comparing workplace queries, first-edit tool-call index and share, and messages to colleagues against F2P for eight models" loading="lazy" decoding="async" width="2310" height="2310"></a>
+                    <a class="workplace-preview" href="#workplace-figure" aria-label="View the workplace exploration figure in the gallery"><img src="static/figures/workplace_exploration_vs_f2p.webp?v=20261022-usage-v9" alt="Five panels comparing workplace queries, first-edit tool-call index and share, and messages to colleagues against F2P for eight models" loading="lazy" decoding="async" width="2310" height="2310"></a>
                     <div class="usage-downloads">
-                        <a href="static/figures/workplace_exploration_vs_f2p.pdf?v=20261022-usage-v8" target="_blank" rel="noopener">Workplace exploration figure PDF ↗</a>
-                        <a href="static/data/workplace-medians.json?v=20261022-usage-v8" download>Median data ↓</a>
+                        <a href="static/figures/workplace_exploration_vs_f2p.pdf?v=20261022-usage-v9" target="_blank" rel="noopener">Workplace exploration figure PDF ↗</a>
+                        <a href="static/data/workplace-medians.json?v=20261022-usage-v9" download>Median data ↓</a>
                     </div>
                     <details class="acq-table usage-table">
                         <summary>Show all workplace exploration medians</summary>
@@ -561,7 +542,7 @@
             <div class="section-heading reveal">
                 <div class="section-kicker">06 · The paper</div>
                 <h2>Every figure,<br><span class="muted-heading">straight from the paper.</span></h2>
-                <p>All fourteen figures from the paper, rendered from the source files. Select a figure to enlarge it, or <a href="static/SWE-CoWork.pdf?v=20261022-usage-v8" target="_blank" rel="noopener">read the full PDF</a>.</p>
+                <p>All fourteen figures from the paper, rendered from the source files. Select a figure to enlarge it, or <a href="static/SWE-CoWork.pdf?v=20261022-usage-v9" target="_blank" rel="noopener">read the full PDF</a>.</p>
             </div>
             <div class="paper-figs reveal">
                 <figure class="paper-fig paper-fig-wide">
@@ -585,40 +566,36 @@
                     <figcaption><b>Figure 5</b> Requirement acquisition, tool calls, and delivery across eleven models. (a) F2P against the share of colleague-held requirements disclosed during the run (Spearman ρ = 0.94). (b) F2P against median tool calls per run, on a log axis (ρ = 0.08).</figcaption>
                 </figure>
                 <figure class="paper-fig paper-fig-wide" id="usage-figure">
-                    <button type="button" class="paper-fig-open" data-fig="6" aria-label="Enlarge Figure 6"><img src="static/figures/usage_medians_vs_f2p.webp?v=20261022-usage-v8" alt="Median model calls, input tokens and output tokens against full-release F2P" loading="lazy" decoding="async"></button>
+                    <button type="button" class="paper-fig-open" data-fig="6" aria-label="Enlarge Figure 6"><img src="static/figures/usage_medians_vs_f2p.webp?v=20261022-usage-v9" alt="Median model calls, input tokens and output tokens against full-release F2P" loading="lazy" decoding="async"></button>
                     <figcaption><b>Figure 6</b> Model calls, token usage, and delivery. Each point pairs a model’s per-run usage median with its full-release F2P. The output axis uses a log scale. Dots and leaders mark exact values where nearby logos are offset. Seed Evolving input is approximate; its output median is unavailable. Usage cohorts differ.</figcaption>
                 </figure>
                 <figure class="paper-fig paper-fig-wide">
-                    <button type="button" class="paper-fig-open" data-fig="7" aria-label="Enlarge Figure 7"><img src="static/figures/tool_compaction_vs_f2p.webp?v=20261022-usage-v8" alt="Median tool calls and context compactions against full-release F2P for nine models" loading="lazy" decoding="async"></button>
+                    <button type="button" class="paper-fig-open" data-fig="7" aria-label="Enlarge Figure 7"><img src="static/figures/tool_compaction_vs_f2p.webp?v=20261022-usage-v9" alt="Median tool calls and context compactions against full-release F2P for nine models" loading="lazy" decoding="async"></button>
                     <figcaption><b>Figure 7</b> Tool use, context compaction, and delivery across nine models. Tool calls use a logarithmic axis; compactions use a linear axis to include zero. Dots and leaders mark exact values where nearby logos are offset.</figcaption>
                 </figure>
-                <figure class="paper-fig paper-fig-wide">
-                    <button type="button" class="paper-fig-open" data-fig="8" aria-label="Enlarge Figure 8"><img src="static/figures/usage_medians_vs_f2p_20runs.webp?v=20261022-usage-v8" alt="Median model calls, input tokens and output tokens against full-release F2P for seven models, including GLM 5.2 and Kimi K3" loading="lazy" decoding="async"></button>
-                    <figcaption><b>Figure 8</b> Additional comparison of usage medians and delivery across seven models. Token axes use millions (M); output uses a logarithmic scale. Dots and leaders mark exact values where nearby logos are offset.</figcaption>
-                </figure>
                 <figure class="paper-fig paper-fig-wide" id="workplace-figure">
-                    <button type="button" class="paper-fig-open" data-fig="9" aria-label="Enlarge Figure 9"><img src="static/figures/workplace_exploration_vs_f2p.webp?v=20261022-usage-v8" alt="Workplace queries, first-edit position and colleague messages against full-release F2P for eight models" loading="lazy" decoding="async"></button>
-                    <figcaption><b>Figure 9</b> Workplace exploration, first code edit, and delivery. Full-release F2P against per-run medians of (a) workplace queries before the first code edit, (b) the tool-call index of that edit, (c) that index as a percentage of all tool calls in the run, (d) workplace queries over the full run, and (e) messages sent to colleagues. Panels (a–d) cover eight models; (e) covers the seven with a reported message median. Panel (c) uses the median of per-run percentages. All axes are linear. Dots and leaders mark exact values where nearby logos are offset.</figcaption>
+                    <button type="button" class="paper-fig-open" data-fig="8" aria-label="Enlarge Figure 8"><img src="static/figures/workplace_exploration_vs_f2p.webp?v=20261022-usage-v9" alt="Workplace queries, first-edit position and colleague messages against full-release F2P for eight models" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 8</b> Workplace exploration, first code edit, and delivery. Full-release F2P against per-run medians of (a) workplace queries before the first code edit, (b) the tool-call index of that edit, (c) that index as a percentage of all tool calls in the run, (d) workplace queries over the full run, and (e) messages sent to colleagues. Panels (a–d) cover eight models; (e) covers the seven with a reported message median. Panel (c) uses the median of per-run percentages. All axes are linear. Dots and leaders mark exact values where nearby logos are offset.</figcaption>
                 </figure>
                 <figure class="paper-fig">
-                    <button type="button" class="paper-fig-open" data-fig="10" aria-label="Enlarge Figure 10"><img src="static/figures/fig06.webp" alt="Requirement acquisition and loss in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
-                    <figcaption><b>Figure 10</b> Requirement acquisition and loss in Claude-Opus-5.5. (a) Colleague-held requirements by acquisition state. (b) F2P pass rates by whether the requirement reached the agent. (c) Earliest observed loss stage for failed nodes.</figcaption>
+                    <button type="button" class="paper-fig-open" data-fig="9" aria-label="Enlarge Figure 9"><img src="static/figures/fig06.webp" alt="Requirement acquisition and loss in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 9</b> Requirement acquisition and loss in Claude-Opus-5.5. (a) Colleague-held requirements by acquisition state. (b) F2P pass rates by whether the requirement reached the agent. (c) Earliest observed loss stage for failed nodes.</figcaption>
                 </figure>
                 <figure class="paper-fig">
-                    <button type="button" class="paper-fig-open" data-fig="11" aria-label="Enlarge Figure 11"><img src="static/figures/fig07.webp" alt="Follow-through and reporting in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
-                    <figcaption><b>Figure 11</b> Follow-through and reporting in Claude-Opus-5.5. (a) Delivery claims compared with test outcomes. (b) Deferred threads and their follow-up. (c) Timing of colleague messages within a run.</figcaption>
+                    <button type="button" class="paper-fig-open" data-fig="10" aria-label="Enlarge Figure 10"><img src="static/figures/fig07.webp" alt="Follow-through and reporting in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 10</b> Follow-through and reporting in Claude-Opus-5.5. (a) Delivery claims compared with test outcomes. (b) Deferred threads and their follow-up. (c) Timing of colleague messages within a run.</figcaption>
                 </figure>
                 <figure class="paper-fig">
-                    <button type="button" class="paper-fig-open" data-fig="12" aria-label="Enlarge Figure 12"><img src="static/figures/fig08.webp" alt="Claude-Opus-5.5 behavior profile" loading="lazy" decoding="async"></button>
-                    <figcaption><b>Figure 12</b> Claude-Opus-5.5 behavior profile. (a) Share of assessable runs by observed behavior, from ineffective to adaptive. (b) Spearman associations with per-task F2P, with exploratory 95% bootstrap intervals.</figcaption>
+                    <button type="button" class="paper-fig-open" data-fig="11" aria-label="Enlarge Figure 11"><img src="static/figures/fig08.webp" alt="Claude-Opus-5.5 behavior profile" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 11</b> Claude-Opus-5.5 behavior profile. (a) Share of assessable runs by observed behavior, from ineffective to adaptive. (b) Spearman associations with per-task F2P, with exploratory 95% bootstrap intervals.</figcaption>
                 </figure>
                 <figure class="paper-fig">
-                    <button type="button" class="paper-fig-open" data-fig="13" aria-label="Enlarge Figure 13"><img src="static/figures/fig09.webp" alt="Effort, outcomes and stopping in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
-                    <figcaption><b>Figure 13</b> Effort, outcomes and stopping in Claude-Opus-5.5. (a–c) Tool calls, colleague messages and hours against per-task F2P. (d) Distribution of F2P over the 101 tasks. (e) How runs ended, including stops with known, actionable gaps.</figcaption>
+                    <button type="button" class="paper-fig-open" data-fig="12" aria-label="Enlarge Figure 12"><img src="static/figures/fig09.webp" alt="Effort, outcomes and stopping in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 12</b> Effort, outcomes and stopping in Claude-Opus-5.5. (a–c) Tool calls, colleague messages and hours against per-task F2P. (d) Distribution of F2P over the 101 tasks. (e) How runs ended, including stops with known, actionable gaps.</figcaption>
                 </figure>
                 <figure class="paper-fig paper-fig-wide">
-                    <button type="button" class="paper-fig-open" data-fig="14" aria-label="Enlarge Figure 14"><img src="static/figures/fig10.webp" alt="Examples of evidence assessment in workplace records" loading="lazy" decoding="async"></button>
-                    <figcaption><b>Figure 14</b> Examples of evidence assessment in workplace records. (a) A published correction supersedes an earlier return shape. (b) Run identifiers expose a discrepancy in copied terminal output. (c) Output semantics and an open question about stream ownership.</figcaption>
+                    <button type="button" class="paper-fig-open" data-fig="13" aria-label="Enlarge Figure 13"><img src="static/figures/fig10.webp" alt="Examples of evidence assessment in workplace records" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 13</b> Examples of evidence assessment in workplace records. (a) A published correction supersedes an earlier return shape. (b) Run identifiers expose a discrepancy in copied terminal output. (c) Output semantics and an open question about stream ownership.</figcaption>
                 </figure>
             </div>
             <dialog class="fig-lightbox" id="fig-lightbox" aria-label="Enlarged figure">
@@ -657,7 +634,7 @@
                 <h2>The future engineer<br><span class="gradient-text">is an owner.</span></h2>
                 <p>Human direction. Collective agent execution. A benchmark for the moment when “write the code” becomes “take responsibility for the work.”</p>
                 <div class="hero-actions">
-                    <a class="button button-primary" href="static/SWE-CoWork.pdf?v=20261022-usage-v8" target="_blank" rel="noopener">Read the full paper <span aria-hidden="true">↗</span></a>
+                    <a class="button button-primary" href="static/SWE-CoWork.pdf?v=20261022-usage-v9" target="_blank" rel="noopener">Read the full paper <span aria-hidden="true">↗</span></a>
                     <a class="button button-quiet" href="https://github.com/TokenWave-AI/swe-cowork-bench" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
                     <a class="button button-quiet" href="#top">Back to top <span aria-hidden="true">↑</span></a>
                 </div>
@@ -672,6 +649,6 @@
         </div>
     </footer>
     <script src="script.js"></script>
-    <script src="usage.js?v=20261022-usage-v8"></script>
+    <script src="usage.js?v=20261022-usage-v9"></script>
 </body>
 </html>
