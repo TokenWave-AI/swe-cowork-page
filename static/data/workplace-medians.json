@@ -1,0 +1,66 @@
+{
+  "statistic": "median per run",
+  "first_edit_share_definition": "100 * first code edit tool-call index / total tool calls within the same run, then take the median across runs",
+  "models": [
+    {
+      "id": "claude",
+      "name": "Claude-Opus-5.5",
+      "icon": "claude",
+      "f2p_percent": 63.84,
+      "median_pre_edit_workplace_queries": 39,
+      "median_first_edit_call": 82,
+      "median_first_edit_share_percent": 38,
+      "median_workplace_queries": 56
+    },
+    {
+      "id": "gpt",
+      "name": "GPT-6 Astra",
+      "icon": "gpt",
+      "f2p_percent": 62.91,
+      "median_pre_edit_workplace_queries": 52,
+      "median_first_edit_call": 67,
+      "median_first_edit_share_percent": 31,
+      "median_workplace_queries": 101
+    },
+    {
+      "id": "seed",
+      "name": "Seed Evolving",
+      "icon": "seed",
+      "f2p_percent": 39.09,
+      "median_pre_edit_workplace_queries": 39.5,
+      "median_first_edit_call": 85,
+      "median_first_edit_share_percent": 12.53,
+      "median_workplace_queries": 134
+    },
+    {
+      "id": "qmax",
+      "name": "Qwen3.8-Max",
+      "icon": "qwen",
+      "f2p_percent": 35.7,
+      "median_pre_edit_workplace_queries": 77,
+      "median_first_edit_call": 163,
+      "median_first_edit_share_percent": 23,
+      "median_workplace_queries": 170
+    },
+    {
+      "id": "glm53",
+      "name": "GLM 5.3",
+      "icon": "glm",
+      "f2p_percent": 31.27,
+      "median_pre_edit_workplace_queries": 74,
+      "median_first_edit_call": 227,
+      "median_first_edit_share_percent": 13,
+      "median_workplace_queries": 215
+    },
+    {
+      "id": "dsflash",
+      "name": "DeepSeek V4.1 Flash",
+      "icon": "deepseek",
+      "f2p_percent": 28.2,
+      "median_pre_edit_workplace_queries": 272,
+      "median_first_edit_call": 703,
+      "median_first_edit_share_percent": 53,
+      "median_workplace_queries": 572
+    }
+  ]
+}

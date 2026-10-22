@@ -383,6 +383,10 @@ svg.cw-ico{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;s
 .usage-downloads a,.usage-note a{color:var(--blue-bright);font-size:11px}
 .usage-table-caption{text-align:left;font:11px var(--sans);margin-bottom:8px;color:var(--muted)}
 .usage-table tbody th{font-weight:400}
+.workplace-card{margin-top:24px;scroll-margin-top:95px}
+.workplace-copy{max-width:850px;margin:18px 0;color:var(--muted);font-size:14px;line-height:1.75}
+.workplace-preview{display:block;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff}
+.workplace-preview img{display:block;width:100%;height:auto}
 @media(max-width:680px){
     .usage-head{align-items:flex-start;gap:16px}
     .usage-card .usage-switch{margin-top:18px;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}

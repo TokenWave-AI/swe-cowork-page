@@ -162,7 +162,7 @@
         select(visible.find(function (model) { return model.id === selected; }) || visible[0]);
     }
 
-    fetch("static/data/usage-medians.json?v=20261022-usage-v4").then(function (response) {
+    fetch("static/data/usage-medians.json?v=20261022-usage-v5").then(function (response) {
         if (!response.ok) throw new Error("Usage data could not be loaded");
         return response.json();
     }).then(function (data) {
