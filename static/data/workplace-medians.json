@@ -10,7 +10,8 @@
       "median_pre_edit_workplace_queries": 39,
       "median_first_edit_call": 82,
       "median_first_edit_share_percent": 38,
-      "median_workplace_queries": 56
+      "median_workplace_queries": 56,
+      "median_colleague_messages": 19.5
     },
     {
       "id": "gpt",
@@ -20,7 +21,8 @@
       "median_pre_edit_workplace_queries": 52,
       "median_first_edit_call": 67,
       "median_first_edit_share_percent": 31,
-      "median_workplace_queries": 101
+      "median_workplace_queries": 101,
+      "median_colleague_messages": 18.5
     },
     {
       "id": "seed",
@@ -30,7 +32,8 @@
       "median_pre_edit_workplace_queries": 39.5,
       "median_first_edit_call": 85,
       "median_first_edit_share_percent": 12.53,
-      "median_workplace_queries": 134
+      "median_workplace_queries": 134,
+      "median_colleague_messages": null
     },
     {
       "id": "qmax",
@@ -40,7 +43,8 @@
       "median_pre_edit_workplace_queries": 77,
       "median_first_edit_call": 163,
       "median_first_edit_share_percent": 23,
-      "median_workplace_queries": 170
+      "median_workplace_queries": 170,
+      "median_colleague_messages": 6
     },
     {
       "id": "glm53",
@@ -50,7 +54,8 @@
       "median_pre_edit_workplace_queries": 74,
       "median_first_edit_call": 227,
       "median_first_edit_share_percent": 13,
-      "median_workplace_queries": 215
+      "median_workplace_queries": 215,
+      "median_colleague_messages": 21
     },
     {
       "id": "dsflash",
@@ -60,7 +65,30 @@
       "median_pre_edit_workplace_queries": 272,
       "median_first_edit_call": 703,
       "median_first_edit_share_percent": 53,
-      "median_workplace_queries": 572
+      "median_workplace_queries": 572,
+      "median_colleague_messages": 4.5
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi K3",
+      "icon": "kimi",
+      "f2p_percent": 27.08,
+      "median_pre_edit_workplace_queries": 37.5,
+      "median_first_edit_call": 105,
+      "median_first_edit_share_percent": 37,
+      "median_workplace_queries": 73,
+      "median_colleague_messages": 8
+    },
+    {
+      "id": "glm52",
+      "name": "GLM 5.2",
+      "icon": "glm",
+      "f2p_percent": 24.4,
+      "median_pre_edit_workplace_queries": 40.5,
+      "median_first_edit_call": 130,
+      "median_first_edit_share_percent": 34,
+      "median_workplace_queries": 100,
+      "median_colleague_messages": 5
     }
   ]
 }
