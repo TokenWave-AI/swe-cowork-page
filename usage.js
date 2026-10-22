@@ -8,7 +8,7 @@
         input: { key: "median_input_tokens", label: "Input tokens", divisor: 1e6, range: [10, 65], ticks: [20, 30, 40, 50, 60], copy: "Input usage includes tokens processed across repeated calls within a run. Seed Evolving’s input median is approximate." },
         output: { key: "median_output_tokens", label: "Output tokens", divisor: 1e6, range: [0.035, 5], ticks: [0.05, 0.1, 0.3, 1, 3], log: true, copy: "Output usage counts tokens generated within a run. Seed Evolving has no reported output median and is omitted from this view." },
         tools: { key: "median_tool_calls", label: "Tool calls", divisor: 1, range: [110, 2500], ticks: [200, 500, 1000, 2000], log: true, copy: "These tool-call medians come from the usage snapshots. The requirement-acquisition chart above uses its own run archive." },
-        compactions: { key: "median_compactions", label: "Context compactions", divisor: 1, range: [0.6, 65], ticks: [1, 2, 5, 10, 20, 50], log: true, copy: "Compactions summarize the conversation to free context space. Each value is the median count within a run." }
+        compactions: { key: "median_compactions", label: "Context compactions", divisor: 1, range: [-3, 40], ticks: [0, 10, 20, 30, 40], copy: "Compactions summarize the conversation to free context space. The linear axis includes Claude-Opus-5.5’s median of zero." }
     };
     var svg = document.getElementById("usage-svg");
     var tooltip = document.getElementById("usage-tooltip");
@@ -120,8 +120,24 @@
         element("text", { x: 14, y: 180, transform: "rotate(-90 14 180)", "text-anchor": "middle", "class": "acq-axis-title" }, svg, "F2P (%)");
         element("text", { x: (box.left + box.right) / 2, y: 386, "text-anchor": "middle", "class": "acq-axis-title" }, svg, "Median " + metric.label.toLowerCase() + " per run" + (metric.divisor === 1e6 ? " (M)" : ""));
         element("line", { x1: box.left, x2: box.right, y1: box.bottom, y2: box.bottom, "class": "acq-baseline" });
+        var markerBoxes = [];
         var points = visible.map(function (model) {
-            var x = xScale(model[metric.key]), y = yScale(model.f2p_percent);
+            var actualX = xScale(model[metric.key]), actualY = yScale(model.f2p_percent);
+            var positions = [[0, 0], [0, 32], [0, -32], [32, 0], [-32, 0], [0, 64], [0, -64]];
+            var best;
+            positions.forEach(function (offset) {
+                var x = actualX + offset[0], y = actualY + offset[1];
+                var bounds = { left: x - 15, right: x + 15, top: y - 15, bottom: y + 15 };
+                var cost = (900 - overlap(bounds, box)) * 100 + Math.abs(offset[0]) + Math.abs(offset[1]);
+                markerBoxes.forEach(function (other) { cost += overlap(bounds, other) * 50; });
+                if (!best || cost < best.cost) best = { x: x, y: y, bounds: bounds, cost: cost };
+            });
+            var x = best.x, y = best.y;
+            markerBoxes.push(best.bounds);
+            if (x !== actualX || y !== actualY) {
+                element("line", { x1: actualX, y1: actualY, x2: x, y2: y, stroke: "#8a98ad", "stroke-width": 1, "class": "usage-marker-leader" });
+                element("circle", { cx: actualX, cy: actualY, r: 2.5, fill: "#d0d8e6", "class": "usage-value-point" });
+            }
             var point = element("g", { "class": "acq-point usage-point", transform: "translate(" + x + " " + y + ")", tabindex: "0", role: "button", "data-model": model.id, "aria-label": model.name + ", median " + metric.label.toLowerCase() + " " + format(model, metric, true) + ", F2P " + model.f2p_percent.toFixed(2) + "%" });
             element("circle", { r: 20, "class": "acq-hit" }, point);
             element("circle", { r: 13, "class": "acq-chip" }, point);
@@ -146,7 +162,7 @@
         select(visible.find(function (model) { return model.id === selected; }) || visible[0]);
     }
 
-    fetch("static/data/usage-medians.json?v=20261022-usage-v2").then(function (response) {
+    fetch("static/data/usage-medians.json?v=20261022-usage-v3").then(function (response) {
         if (!response.ok) throw new Error("Usage data could not be loaded");
         return response.json();
     }).then(function (data) {

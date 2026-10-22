@@ -1,17 +1,32 @@
 {
   "date": "2026-10-22",
-  "usage_source": "Author-supplied per-run median summaries, main usage snapshot.",
+  "usage_source": "Author-supplied per-run median summaries, including the Claude-Opus-5.5 text summary.",
   "f2p_scope": "Current paper model-level CoWork F2P, full 101-task release denominator; not recomputed for the screenshot subsets.",
   "rules": [
     "Only supplied medians are stored as plotted metrics; no totals are plotted or divided by run count.",
     "万 = 10000 tokens. Token axis M = 1000000 tokens, K = 1000 tokens.",
-    "Image 4 is the main usage snapshot; Image 3 adds Seed Evolving.",
+    "Image 4 is the main usage snapshot; Image 3 adds Seed Evolving; the author-supplied text summary adds Claude-Opus-5.5.",
     "Images 1 and 2 are a separate 20-run snapshot and are not averaged with Image 4.",
     "Missing metrics remain null; no median is inferred from totals or from differences of medians.",
     "Input tokens count cumulative usage over repeated calls, not unique tokens or peak context.",
     "Across-model summaries pair screenshot usage medians with paper-level F2P; no paired-run causal estimate, significance test, confidence interval, or fitted trend is claimed."
   ],
   "models": [
+    {
+      "id": "claude",
+      "name": "Claude-Opus-5.5",
+      "icon": "claude",
+      "f2p_percent": 63.84,
+      "median_model_calls": 174,
+      "median_tool_calls": 199,
+      "median_input_tokens": 47570000,
+      "median_output_tokens": 210000,
+      "median_compactions": 0,
+      "median_duration_hours": null,
+      "median_input_tokens_per_call": 296000,
+      "median_peak_context_tokens": 483000,
+      "approximate_input_metrics": false
+    },
     {
       "id": "gpt",
       "name": "GPT-6 Astra",
