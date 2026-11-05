@@ -143,6 +143,7 @@ b, strong { font-weight: 600; }
 .model-id { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
 .model-id img { width: 20px; height: 20px; object-fit: contain; }
 .leaderboard-table thead button { padding: 0; background: transparent; width: 100%; text-align: center; font-size: 14px; line-height: 22px; font-weight: 600; white-space: nowrap; }
+.leaderboard-table .score-cell, .leaderboard-table thead button[data-sort="f2p"] { text-align: left; }
 .leaderboard-table thead button small { display: block; font-size: 12px; line-height: 18px; font-weight: 400; margin-top: 4px; color: var(--secondary); }
 .leaderboard-table [aria-sort] button { color: var(--blue); }
 .metric-heading { display: inline-block; position: relative; }
