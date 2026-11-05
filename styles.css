@@ -135,21 +135,22 @@ b, strong { font-weight: 600; }
 .leaderboard-table thead { background: var(--surface); }
 .leaderboard-table thead th { font-size: 14px; font-weight: 400; color: var(--secondary); }
 .leaderboard-table tbody tr:last-child>* { border-bottom: 0; }
-.leaderboard-table .rank { width: 56px; font-size: 12px; color: var(--secondary); }
+.leaderboard-table .rank { width: 56px; font-size: 12px; color: var(--secondary); text-align: center; }
 .leaderboard-table th[scope=row] { width: 34%; font-weight: 400; }
-.leaderboard-table td { width: 18%; text-align: right; }
-.leaderboard-table td small { font-size: 12px; color: var(--secondary); margin-left: 3px; }
+.leaderboard-table td { width: 18%; text-align: center; }
+.leaderboard-table td small { font-size: 12px; font-weight: 400; color: var(--secondary); margin-left: 3px; }
 .leaderboard-table tbody tr:hover { background: #f7faff; }
 .model-id { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
 .model-id img { width: 20px; height: 20px; object-fit: contain; }
-.leaderboard-table thead button { padding: 0; background: transparent; width: 100%; text-align: right; font-size: 14px; line-height: 22px; font-weight: 600; white-space: nowrap; }
+.leaderboard-table thead button { padding: 0; background: transparent; width: 100%; text-align: center; font-size: 14px; line-height: 22px; font-weight: 600; white-space: nowrap; }
 .leaderboard-table thead button small { display: block; font-size: 12px; line-height: 18px; font-weight: 400; margin-top: 4px; color: var(--secondary); }
 .leaderboard-table [aria-sort] button { color: var(--blue); }
-.sort-arrow { margin-left: 4px; }
+.metric-heading { display: inline-block; position: relative; }
+.sort-arrow { position: absolute; left: calc(100% + 6px); top: 0; }
 .score-bar { position: absolute; left: 8px; bottom: 12px; top: 12px; width: var(--score); max-width: calc(100% - 16px); background: var(--blue-tint); border-radius: 4px; pointer-events: none; }
-.score-bar+span { position: relative; }
+.metric-value { display: inline-block; position: relative; white-space: nowrap; }
 .leaderboard-table .metric-best { color: var(--blue); font-weight: 600; }
-.leaderboard-table .metric-best:after { content: ''; position: absolute; right: 5px; top: 50%; width: 3px; height: 16px; border-radius: 2px; background: var(--blue); transform: translateY(-50%); }
+.leaderboard-table .metric-best .metric-value:after { content: ''; position: absolute; right: -14px; top: 50%; width: 3px; height: 16px; border-radius: 2px; background: var(--blue); transform: translateY(-50%); }
 .metric-notes { display: grid; grid-template-columns: 1fr 1fr 1.15fr; gap: 20px; padding: 24px 0; margin-bottom: 16px; border-bottom: 1px solid var(--line); }
 .metric-notes p { font-size: 12px; line-height: 18px; margin: 0; color: var(--secondary); }
 .metric-notes b { display: block; font-size: 14px; line-height: 22px; color: var(--ink); margin-bottom: 8px; }
