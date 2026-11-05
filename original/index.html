@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090d16">
+    <meta name="description" content="SWE-CoWork: benchmarking coding agents as digital employees in organizations.">
+    <meta property="og:title" content="SWE-CoWork — Own the work">
+    <meta property="og:description" content="A TokenWave AI benchmark that places coding agents inside an organization of digital employees and follows each requirement from clarification to verified delivery.">
+    <meta property="og:type" content="article">
+    <title>SWE-CoWork — Own the work | TokenWave AI</title>
+    <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
+    <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css?v=20261022-usage-v10">
+</head>
+<body>
+    <div class="page-grain" aria-hidden="true"></div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#top" aria-label="TokenWave AI home">
+                <img src="../static/mark.png" alt="" class="brand-mark">
+                <span class="brand-name">TokenWave<span class="brand-ai">AI</span></span>
+            </a>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="#shift">The shift</a>
+                <a href="#loop">The loop</a>
+                <a href="#results">Evidence</a>
+                <a href="#diagnosis">Diagnosis</a>
+                <a href="#figures">Figures</a>
+            </nav>
+            <div class="header-links">
+                <a class="header-link" href="https://github.com/TokenWave-AI/swe-cowork-bench" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                <a class="header-link" href="../static/SWE-CoWork.pdf?v=20261022-usage-v10" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero container">
+            <div class="hero-copy reveal">
+                <div class="eyebrow"><span class="eyebrow-dot"></span> Research note · October 2026</div>
+                <h1>Own the work.<br><span class="gradient-text">Don’t just patch the issue.</span></h1>
+                <p class="hero-lede">SWE-CoWork places a coding agent inside an organization of digital employees. Requirements sit with accountable colleagues and project records, and each one is tied to executable tests, so we can follow it from the first question to the final handoff.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#shift">Explore the benchmark <span aria-hidden="true">↓</span></a>
+                    <a class="button button-quiet" href="../static/SWE-CoWork.pdf?v=20261022-usage-v10" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+                    <a class="button button-quiet" href="https://github.com/TokenWave-AI/swe-cowork-bench" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="hero-note"><span class="status-dot"></span> SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations</div>
+            </div>
+
+            <div class="hero-visual reveal reveal-delay">
+                <div class="hero-visual-glow"></div>
+                <div class="cw-stage" role="img" aria-label="Illustrative task: a coding agent reads a board ticket and versioned docs, asks the owner to clarify output capture, then builds and verifies a repository patch.">
+                    <svg class="cw-wires" viewBox="0 0 540 520" preserveAspectRatio="none" aria-hidden="true">
+                    <path id="cw-p-board" d="M372 66 C 320 66, 305 172, 270 250"/>
+                    <path id="cw-p-docs" d="M168 420 C 220 420, 240 310, 270 250"/>
+                    <path id="cw-p-chat" d="M168 80 C 225 80, 235 172, 270 250"/>
+                    <path id="cw-p-ci" d="M372 420 C 320 420, 300 310, 270 250"/>
+                    <g class="cw-dots">
+                    <circle r="4.2" fill="#86c1ff" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.02;0.14;1" calcMode="linear"><mpath href="#cw-p-board"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.02;0.03;0.13;0.14;1"/></circle>
+                    <circle r="4.2" fill="#86c1ff" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.22;0.34;1" calcMode="linear"><mpath href="#cw-p-docs"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.22;0.23;0.33;0.34;1"/></circle>
+                    <circle r="4.2" fill="#9e7bff" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="1;1;0;0" keyTimes="0;0.4;0.52;1" calcMode="linear"><mpath href="#cw-p-chat"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.4;0.41;0.51;0.52;1"/></circle>
+                    <circle r="4.2" fill="#f0784c" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.56;0.7;1" calcMode="linear"><mpath href="#cw-p-chat"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.56;0.57;0.69;0.7;1"/></circle>
+                    <circle r="4.2" fill="#42c99b" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="1;1;0;0" keyTimes="0;0.74;0.84;1" calcMode="linear"><mpath href="#cw-p-ci"/></animateMotion><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.74;0.75;0.83;0.84;1"/></circle>
+                    </g></svg>
+                    <div class="cw-src cw-chat">
+                        <div class="cw-src-head"><svg class="cw-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H9l-5 3v-6A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 9h7M8 13h4"/></svg>Chat<span class="cw-avatars"><i>L</i><i>M</i><i>R</i><em>+23</em></span></div>
+                        <div class="cw-msg"><b class="cw-who">Lucy · owner</b>Keep stdout and stderr separate. Preserve write order.</div>
+                    </div>
+                    <div class="cw-src cw-board">
+                        <div class="cw-src-head"><svg class="cw-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16M5.5 8h1M11.5 8h1M17.5 8h1"/></svg>Board</div>
+                        <div class="cw-ticket"><span>CLK-201</span>Output capture</div>
+                        <div class="cw-row"><span class="cw-pill">In progress</span><span class="cw-dim">owner: Lucy</span></div>
+                    </div>
+                    <div class="cw-src cw-docs">
+                        <div class="cw-src-head"><svg class="cw-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H5v18h14V8Z"/><path d="M14 3v5h5M8 12h8M8 16h6"/></svg>Docs<span class="cw-ver">DOC-11 · v3</span></div>
+                        <div class="cw-old">Only one output string.</div>
+                        <div class="cw-new">Current: separate + interleaved.</div>
+                    </div>
+                    <div class="cw-src cw-ci">
+                        <div class="cw-src-head"><svg class="cw-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 6 6-6 6M13 18h7"/></svg>Terminal</div>
+                        <code>$ pytest</code>
+                        <code class="cw-pass">✓ output checks passed</code>
+                    </div>
+                    <div class="cw-agent">
+                        <svg class="cw-bot" viewBox="0 0 64 60" aria-hidden="true">
+                            <line x1="32" y1="4" x2="32" y2="13" stroke="#86c1ff" stroke-width="2"/>
+                            <circle class="cw-bot-tip" cx="32" cy="5" r="3.4" fill="#42c99b"/>
+                            <rect x="8" y="13" width="48" height="36" rx="11" fill="#16233a" stroke="#86c1ff" stroke-width="2"/>
+                            <rect x="3" y="25" width="5" height="12" rx="2.5" fill="#86c1ff"/>
+                            <rect x="56" y="25" width="5" height="12" rx="2.5" fill="#86c1ff"/>
+                            <rect x="15" y="21" width="34" height="20" rx="7" fill="#0b1322"/>
+                            <g class="cw-eyes"><circle cx="25" cy="31" r="3.4" fill="#86c1ff"/><circle cx="39" cy="31" r="3.4" fill="#86c1ff"/></g>
+                            <path d="M20 54 h24" stroke="#4c9cff" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <div class="cw-agent-head"><b>Coding agent</b><span>new teammate</span></div>
+                        <div class="cw-editor">
+                            <div class="cw-tab">result.py</div>
+                            <code class="cw-l1"><i>1</i>result.stdout = out</code>
+                            <code class="cw-l2"><i>2</i>result.stderr = err</code>
+                            <code class="cw-l3"><i>3</i>result.output = interleaved</code>
+                        </div>
+                        <div class="cw-status"><span class="cw-s1">reading CLK-201…</span><span class="cw-s2">checking DOC-11 v3…</span><span class="cw-s3">asking Lucy…</span><span class="cw-s4">running tests…</span><span class="cw-s5">ready to deliver</span></div>
+                    </div>
+                    <div class="cw-out"><span class="cw-ico">⇢</span>Repository patch <i>→</i> F2P / P2P tests <b>✓</b></div>
+                </div>
+                <div class="visual-caption"><span>26 digital employees per task</span><span>·</span><span>fixed executable contract</span></div>
+                <button class="cw-motion" type="button" aria-label="Pause task animation" aria-pressed="false" hidden>Pause animation</button>
+            </div>
+        </section>
+
+        <section class="signal-strip" aria-label="Benchmark headline facts">
+            <div class="container signal-grid">
+                <div class="signal-item"><strong>101</strong><span>real repositories</span></div>
+                <div class="signal-item"><strong>11</strong><span>programming languages</span></div>
+                <div class="signal-item"><strong>12</strong><span>application domains</span></div>
+                <div class="signal-item signal-statement"><span>THE QUESTION</span><strong>Can an agent turn a brief handoff into verified delivery?</strong></div>
+            </div>
+        </section>
+
+        <section class="section container" id="shift">
+            <div class="section-heading reveal">
+                <div class="section-kicker">01 · The shift</div>
+                <h2>The hard part starts<br><span class="muted-heading">before the first line of code.</span></h2>
+                <p>Most coding benchmarks hand an agent a packaged issue. SWE-CoWork hands it something closer to a Monday morning: a short onboarding note, a living repository, and a workplace where the missing context belongs to other people.</p>
+            </div>
+
+            <div class="comparison reveal">
+                <article class="comparison-card comparison-old">
+                    <div class="card-label"><span class="card-dot dot-muted"></span> Issue-style SWE <em>the usual benchmark</em></div>
+                    <div class="issue-window">
+                        <div class="window-top"><span>pallets / click</span><span class="window-tag">Open issue</span></div>
+                        <div class="issue-body">
+                            <h3>Output capture</h3>
+                            <p>Extend the result: preserve write order; expose stdout and stderr separately.</p>
+                        </div>
+                        <ul class="given-list">
+                            <li><span>Spec</span>written up front</li>
+                            <li><span>People</span>none to consult</li>
+                            <li><span>Context</span>all in the ticket</li>
+                        </ul>
+                    </div>
+                    <div class="card-foot"><span>issue + repository</span><i>→</i><b>patch</b></div>
+                </article>
+
+                <div class="comparison-arrow" aria-hidden="true"><span>→</span><small>same objective</small></div>
+
+                <article class="comparison-card comparison-new step-playback" id="work-playback" aria-label="SWE-CoWork workplace workflow">
+                    <div class="card-label"><span class="card-dot dot-accent"></span> SWE-CoWork <em>work already in progress</em></div>
+                    <div class="work-window">
+                        <div class="handoff"><span class="handoff-tag">Handoff</span>“Finish the compatibility work.”<small>Six minutes of context. The previous owner is unavailable.</small></div>
+                        <ol class="work-steps">
+                            <li><button class="work-step is-active" type="button" aria-pressed="true" aria-controls="work-scenes"><span class="work-step-top">01<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6"/></svg></span><b>Investigate</b><small>board · docs · history</small></button></li>
+                            <li><button class="work-step" type="button" aria-pressed="false" aria-controls="work-scenes"><span class="work-step-top">02<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H9l-5 4zM8 8h8M8 12h5"/></svg></span><b>Ask with context</b><small>find the owner</small></button></li>
+                            <li><button class="work-step" type="button" aria-pressed="false" aria-controls="work-scenes"><span class="work-step-top">03<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 6-5 6 5 6m10-12 5 6-5 6M14 4l-4 16"/></svg></span><b>Build &amp; check</b><small>patch · CI · tests</small></button></li>
+                            <li><button class="work-step" type="button" aria-pressed="false" aria-controls="work-scenes"><span class="work-step-top">04<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2-5M20 3v5h-5m-7 4 3 3 5-6"/></svg></span><b>Revisit &amp; deliver</b><small>close the open loop</small></button></li>
+                        </ol>
+                        <div class="work-scenes" id="work-scenes" aria-label="Illustrative workplace activity">
+                            <div class="work-scene is-current" aria-hidden="false">
+                                <div class="work-event"><span>Board</span><b>CLK-201 · Output capture</b></div>
+                                <div class="work-event"><span>Docs</span><b>DOC-11 · compare revisions</b></div>
+                                <div class="work-event"><span>History</span><b>Trace the caller and prior behavior</b></div>
+                            </div>
+                            <div class="work-scene work-conversation" aria-hidden="true">
+                                <div class="work-event"><span>Agent</span><b>Which output contract applies?</b></div>
+                                <div class="work-event work-reply"><span>Owner</span><b>Keep stdout and stderr separate. Preserve write order.</b></div>
+                            </div>
+                            <div class="work-scene work-code" aria-hidden="true">
+                                <div class="work-event"><span>Patch</span><b>result.py</b></div>
+                                <code>result.stdout = out</code><code>result.stderr = err</code><code>result.output = interleaved</code>
+                            </div>
+                            <div class="work-scene work-delivery" aria-hidden="true">
+                                <div class="work-event"><span>Revisit</span><b>Resolve the remaining question</b></div>
+                                <div class="work-event"><span>Check</span><b>Verify the patch and output behavior</b></div>
+                                <div class="work-event"><span>Deliver</span><b>Record changes and remaining work</b></div>
+                            </div>
+                        </div>
+                        <div class="playback-controls"><span><i class="playback-dot" aria-hidden="true"></i>Illustrative workflow</span><button class="playback-toggle" type="button" aria-pressed="false" hidden>Pause animation</button></div>
+                    </div>
+                    <div class="card-foot"><span>organization + evidence</span><i>→</i><b>verified delivery</b></div>
+                </article>
+            </div>
+
+            <div class="pull-quote reveal">
+                <span class="quote-mark">“</span>
+                <p>The agent receives a brief handoff. It establishes each requirement with the colleague or record that holds it, and then carries that requirement through code, verification, and the final handoff.</p>
+            </div>
+        </section>
+
+        <section class="section section-loop" id="loop">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-kicker">02 · The loop</div>
+                    <h2>Six moves turn a handoff<br><span class="gradient-text">into a delivery.</span></h2>
+                    <p>There is no prescribed order. New evidence can change the agent’s picture of the work, so a good run keeps circling between people, records, code, and checks.</p>
+                </div>
+
+                <div class="storyboard reveal step-playback" id="story-playback" aria-label="Six stages of the workplace task loop">
+                    <div class="story-nav" role="tablist" aria-label="SWE-CoWork task stages">
+                        <button class="story-step is-selected" type="button" role="tab" aria-selected="true" data-step="0">
+                            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="step-number">01</span><span class="step-name">Orient</span><span class="step-detail">find the first lead</span>
+                        </button>
+                        <button class="story-step" type="button" role="tab" aria-selected="false" data-step="1">
+                            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.2-4.2"/><path d="M8.5 11h5"/></svg></span><span class="step-number">02</span><span class="step-name">Investigate</span><span class="step-detail">reconcile the record</span>
+                        </button>
+                        <button class="story-step" type="button" role="tab" aria-selected="false" data-step="2">
+                            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5z"/><path d="M10.2 8.6a1.9 1.9 0 1 1 2.6 1.8c-.5.2-.8.6-.8 1.1v.3"/><path d="M12 13.6h.01"/></svg></span><span class="step-number">03</span><span class="step-name">Ask</span><span class="step-detail">reach the owner</span>
+                        </button>
+                        <button class="story-step" type="button" role="tab" aria-selected="false" data-step="3">
+                            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M9.5 12.5l2 2 3.5-4"/></svg></span><span class="step-number">04</span><span class="step-name">Build &amp; verify</span><span class="step-detail">change the repo</span>
+                        </button>
+                        <button class="story-step" type="button" role="tab" aria-selected="false" data-step="4">
+                            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/><path d="M12 8v4l2.5 1.5"/></svg></span><span class="step-number">05</span><span class="step-name">Revise</span><span class="step-detail">follow the new trace</span>
+                        </button>
+                        <button class="story-step" type="button" role="tab" aria-selected="false" data-step="5">
+                            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5"/><path d="M12 12v9"/><path d="M7.7 5.2l8.5 4.6"/></svg></span><span class="step-number">06</span><span class="step-name">Deliver</span><span class="step-detail">account for the work</span>
+                        </button>
+                    </div>
+                    <div class="story-stage" id="story-panel" role="tabpanel" tabindex="0">
+                        <div class="story-stage-top">
+                            <div><span class="story-stage-index" id="story-index">01</span><span class="story-stage-label">illustrative task loop</span></div>
+                            <span class="story-time" id="story-time">01 / 06</span>
+                        </div>
+                        <div class="story-visual" id="story-visual">
+                            <div class="story-network">
+                                <div class="network-halo halo-one"></div>
+                                <div class="network-halo halo-two"></div>
+                                <div class="network-agent">
+                                    <svg class="loop-bot" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 5v8" stroke="#86c1ff" stroke-width="2"/><circle cx="32" cy="5" r="3" fill="#42c99b"/><rect x="8" y="13" width="48" height="36" rx="11" fill="#16233a" stroke="#86c1ff" stroke-width="2"/><path d="M5 27v8m54-8v8" stroke="#86c1ff" stroke-width="5" stroke-linecap="round"/><rect x="15" y="21" width="34" height="20" rx="7" fill="#0b1322"/><g class="loop-eyes" fill="#86c1ff"><circle cx="25" cy="31" r="3.4"/><circle cx="39" cy="31" r="3.4"/></g></svg>
+                                    <span class="agent-icon" id="story-icon"></span><b id="story-focus">orient</b>
+                                </div>
+                                <div class="network-node network-node-a" data-node="board"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16M6 8h0M12 8h0M18 8h0"/></svg><span>board</span></div>
+                                <div class="network-node network-node-b" data-node="docs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h6"/></svg><span>docs</span></div>
+                                <div class="network-node network-node-c" data-node="colleague"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M5 21v-3a7 7 0 0 1 14 0v3"/></svg><span>colleague</span></div>
+                                <div class="network-node network-node-d" data-node="tests"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 6 6-6 6M13 18h7"/></svg><span>tests</span></div>
+                                <svg class="network-wires" viewBox="0 0 300 230" preserveAspectRatio="none" aria-hidden="true">
+                                    <g class="network-tracks"><path d="M80 27C125 27 150 65 150 115"/><path d="M250 54C200 54 150 65 150 115"/><path d="M65 195C115 195 150 165 150 115"/><path d="M220 212C185 212 150 165 150 115"/></g>
+                                    <path class="network-signal" data-node="board" pathLength="100" d="M80 27C125 27 150 65 150 115"/><path class="network-signal" data-node="docs" pathLength="100" d="M250 54C200 54 150 65 150 115"/><path class="network-signal" data-node="colleague" pathLength="100" d="M65 195C115 195 150 165 150 115"/><path class="network-signal" data-node="tests" pathLength="100" d="M220 212C185 212 150 165 150 115"/>
+                                </svg>
+                            </div>
+                            <div class="story-copy">
+                                <div class="story-copy-kicker" id="story-kicker">START WITH A MAP</div>
+                                <h3 id="story-title">Read the handoff. Locate the work.</h3>
+                                <p id="story-description">The agent identifies the target project, scope, and first leads before it spends effort on a patch.</p>
+                                <div class="story-chips" id="story-chips"><span>onboarding note</span><span>repo state</span><span>scope</span></div>
+                            </div>
+                        </div>
+                        <div class="story-progress"><span id="story-progress"></span></div>
+                        <div class="playback-controls"><span><i class="playback-dot" aria-hidden="true"></i>Select any stage to explore</span><button class="playback-toggle" type="button" aria-pressed="false" hidden>Pause animation</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" id="scale">
+            <div class="section-heading reveal">
+                <div class="section-kicker">03 · The environment</div>
+                <h2>Not a toy task.<br><span class="muted-heading">A whole organization.</span></h2>
+                <p>Every assignment is grounded in a real upstream repository and surrounded by an authored project history. Each digital employee has a defined responsibility, bounded local knowledge, and rules for what it can disclose.</p>
+            </div>
+            <div class="stat-grid reveal">
+                <article class="stat-card stat-card-large"><span class="stat-value">2,626</span><span class="stat-label">employee profiles across the benchmark</span><span class="stat-meta">26 digital employees × 101 tasks</span></article>
+                <article class="stat-card"><span class="stat-value">40,836</span><span class="stat-label">chat messages</span><span class="stat-meta">plus 10,329 board cards</span></article>
+                <article class="stat-card"><span class="stat-value">2,955</span><span class="stat-label">median production lines</span><span class="stat-meta">across 60 files, tests excluded</span></article>
+                <article class="stat-card"><span class="stat-value">32</span><span class="stat-label">median verifier nodes</span><span class="stat-meta">2,699 F2P · 562 P2P total</span></article>
+            </div>
+
+            <div class="composition reveal">
+                <div class="composition-panel">
+                    <div class="panel-head"><span class="panel-kicker">LANGUAGES</span><span class="panel-note">tasks per language</span></div>
+                    <div class="bar-list">
+                        <div class="bar-row"><span>JavaScript</span><div class="bar-track"><i style="width:100%"></i></div><b>20</b></div>
+                        <div class="bar-row"><span>Python</span><div class="bar-track"><i style="width:85%"></i></div><b>17</b></div>
+                        <div class="bar-row"><span>TypeScript</span><div class="bar-track"><i style="width:60%"></i></div><b>12</b></div>
+                        <div class="bar-row"><span>PHP</span><div class="bar-track"><i style="width:50%"></i></div><b>10</b></div>
+                        <div class="bar-row"><span>C#</span><div class="bar-track"><i style="width:45%"></i></div><b>9</b></div>
+                        <div class="bar-row"><span>Ruby</span><div class="bar-track"><i style="width:45%"></i></div><b>9</b></div>
+                    </div>
+                    <div class="panel-foot">+ Go · Java · C++ · Rust · Kotlin <span>11 total</span></div>
+                </div>
+                <div class="composition-panel">
+                    <div class="panel-head"><span class="panel-kicker">DOMAINS</span><span class="panel-note">upstream repositories</span></div>
+                    <div class="domain-grid">
+                        <div class="domain-pill domain-wide"><span>Web &amp; frontend</span><b>26</b></div>
+                        <div class="domain-pill domain-wide"><span>Dev tools &amp; compilers</span><b>22</b></div>
+                        <div class="domain-pill"><span>Data &amp; databases</span><b>11</b></div>
+                        <div class="domain-pill"><span>Games &amp; graphics</span><b>10</b></div>
+                        <div class="domain-pill"><span>Desktop apps</span><b>7</b></div>
+                        <div class="domain-pill"><span>Cloud &amp; infra</span><b>5</b></div>
+                        <div class="domain-pill"><span>Finance &amp; payments</span><b>5</b></div>
+                        <div class="domain-pill"><span>ML &amp; AI systems</span><b>4</b></div>
+                    </div>
+                    <div class="panel-foot">+ security · mobile · observability · scientific <span>12 total</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-results" id="results">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-kicker">04 · The evidence</div>
+                    <h2>Partial competence is not<br><span class="gradient-text">ownership.</span></h2>
+                    <p>Eleven models work against the same 101-task release contract. Switch the metric to compare new behavior delivered (F2P), existing behavior preserved (P2P), and assignments where every test passes in the same run.</p>
+                </div>
+
+                <div class="results-layout reveal">
+                    <div class="results-card">
+                        <div class="results-toolbar">
+                            <div><span class="panel-kicker">CO-WORK OUTCOMES</span><span class="panel-note">higher is better · %</span></div>
+                            <div class="metric-switch" role="group" aria-label="Choose outcome metric">
+                                <button type="button" class="metric-button is-active" data-metric="f2p">F2P</button>
+                                <button type="button" class="metric-button" data-metric="p2p">P2P</button>
+                                <button type="button" class="metric-button" data-metric="pass">Pass</button>
+                            </div>
+                        </div>
+                        <div class="result-chart" id="result-chart" aria-live="polite">
+                            <div class="model-row" data-name="Claude-Opus-5.5" data-f2p="63.84" data-p2p="93.24" data-pass="6.93"><span class="model-name"><img src="../static/logos/claude.png" alt="" class="model-logo">Claude-Opus-5.5</span><div class="model-track"><i></i></div><b>63.84</b></div>
+                            <div class="model-row" data-name="GPT-6 Astra" data-f2p="62.91" data-p2p="89.15" data-pass="7.92"><span class="model-name"><img src="../static/logos/gpt.png" alt="" class="model-logo">GPT-6 Astra</span><div class="model-track"><i></i></div><b>62.91</b></div>
+                            <div class="model-row" data-name="Seed Evolving" data-f2p="39.09" data-p2p="94.48" data-pass="0.99"><span class="model-name"><img src="../static/logos/seed.png" alt="" class="model-logo">Seed Evolving</span><div class="model-track"><i></i></div><b>39.09</b></div>
+                            <div class="model-row" data-name="Qwen3.8-Max" data-f2p="35.70" data-p2p="91.80" data-pass="0.00"><span class="model-name"><img src="../static/logos/qwen.png" alt="" class="model-logo">Qwen3.8-Max</span><div class="model-track"><i></i></div><b>35.70</b></div>
+                            <div class="model-row" data-name="GLM 5.3" data-f2p="31.27" data-p2p="87.72" data-pass="0.99"><span class="model-name"><img src="../static/logos/glm.png" alt="" class="model-logo">GLM 5.3</span><div class="model-track"><i></i></div><b>31.27</b></div>
+                            <div class="model-row" data-name="Qwen3.8-Flash" data-f2p="30.70" data-p2p="93.40" data-pass="0.00"><span class="model-name"><img src="../static/logos/qwen.png" alt="" class="model-logo">Qwen3.8-Flash</span><div class="model-track"><i></i></div><b>30.70</b></div>
+                            <div class="model-row" data-name="DeepSeek V4.1 Flash" data-f2p="28.20" data-p2p="94.30" data-pass="0.00"><span class="model-name"><img src="../static/logos/deepseek.png" alt="" class="model-logo">DeepSeek V4.1 Flash</span><div class="model-track"><i></i></div><b>28.20</b></div>
+                            <div class="model-row" data-name="Kimi K3" data-f2p="27.08" data-p2p="84.88" data-pass="0.99"><span class="model-name"><img src="../static/logos/kimi.png" alt="" class="model-logo">Kimi K3</span><div class="model-track"><i></i></div><b>27.08</b></div>
+                            <div class="model-row" data-name="GLM 5.2" data-f2p="24.40" data-p2p="95.20" data-pass="0.00"><span class="model-name"><img src="../static/logos/glm.png" alt="" class="model-logo">GLM 5.2</span><div class="model-track"><i></i></div><b>24.40</b></div>
+                            <div class="model-row" data-name="Seed 2.1 Pro" data-f2p="21.01" data-p2p="81.85" data-pass="0.00"><span class="model-name"><img src="../static/logos/seed.png" alt="" class="model-logo">Seed 2.1 Pro</span><div class="model-track"><i></i></div><b>21.01</b></div>
+                            <div class="model-row" data-name="DeepSeek V4 Pro" data-f2p="13.04" data-p2p="90.21" data-pass="0.00"><span class="model-name"><img src="../static/logos/deepseek.png" alt="" class="model-logo">DeepSeek V4 Pro</span><div class="model-track"><i></i></div><b>13.04</b></div>
+                        </div>
+                        <div class="chart-scale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+                    </div>
+                    <aside class="results-aside">
+                        <div class="aside-number" id="metric-number">63.84<span>%</span></div>
+                        <div class="aside-label" id="metric-label">F2P · Claude-Opus-5.5 leads</div>
+                        <p id="metric-copy">The two leading models deliver close to two thirds of the new behavior. The other nine stay below 40%.</p>
+                        <div class="aside-divider"></div>
+                        <div class="aside-fact"><span class="status-dot"></span><div><b>At most 7.92%</b> <span>of tasks pass every F2P and P2P node in the same run, for any model.</span></div></div>
+                    </aside>
+                </div>
+
+                <div class="acq-card reveal" id="acquisition">
+                    <div class="acq-head">
+                        <div>
+                            <div class="section-kicker">REQUIREMENT ACQUISITION</div>
+                            <h3>Models that obtain more requirements deliver more.<br><span class="muted-heading">More tool calls do not.</span></h3>
+                        </div>
+                        <div class="metric-switch" role="group" aria-label="Choose the horizontal axis">
+                            <button type="button" class="metric-button acq-button is-active" data-axis="acq">Requirements obtained</button>
+                            <button type="button" class="metric-button acq-button" data-axis="tools">Tool calls</button>
+                        </div>
+                    </div>
+                    <div class="acq-body">
+                        <div class="acq-plot" id="acq-plot">
+                            <svg id="acq-svg" viewBox="0 0 640 380" role="img" aria-labelledby="acq-svg-title"><title id="acq-svg-title">F2P against requirement acquisition or tool calls for eleven models</title></svg>
+                            <div class="acq-tooltip" id="acq-tooltip" role="status" hidden></div>
+                        </div>
+                        <aside class="acq-aside">
+                            <div class="aside-number" id="acq-rho">0.94</div>
+                            <div class="aside-label" id="acq-rho-label">Spearman ρ with F2P · eleven models</div>
+                            <p id="acq-copy">The share of requirements held by colleagues that a model obtains orders the models almost exactly as F2P does.</p>
+                            <div class="aside-divider"></div>
+                            <div class="aside-fact"><span class="status-dot status-dot-orange"></span><div><b>GLM 5.3</b> <span>asks the most (median 23 messages) and obtains 58.8% of the requirements held by colleagues, yet reaches 31.27% F2P.</span></div></div>
+                        </aside>
+                    </div>
+                    <details class="acq-table">
+                        <summary>Show the data table</summary>
+                        <div class="acq-table-scroll">
+                            <table>
+                                <thead><tr><th>Model</th><th>Messages</th><th>Tool calls</th><th>Hours</th><th>Colleague req. obtained</th><th>All req. obtained</th><th>F2P</th></tr></thead>
+                                <tbody id="acq-table-body"></tbody>
+                            </table>
+                        </div>
+                        <p class="acq-table-note">Medians per run. Colleague: requirements held only by colleagues that were disclosed. All: adds public requirements, counted as obtained.</p>
+                    </details>
+                </div>
+
+                <section class="acq-card usage-card reveal" id="usage" aria-labelledby="usage-heading">
+                    <div class="acq-head usage-head">
+                        <div>
+                            <div class="section-kicker">USAGE AND DELIVERY</div>
+                            <h3 id="usage-heading">Token use and model calls.<br><span class="muted-heading">How do the medians compare with F2P?</span></h3>
+                        </div>
+                        <a class="usage-paper-link" href="#usage-figure">View the figure ↓</a>
+                    </div>
+                    <p class="workplace-copy">F2P does not rise with the amount of interaction. The weakest models, such as Kimi K3 and GLM 5.2, make about 300 tool calls and stop well within the budget, at 24–27% F2P. The middle group, from Seed Evolving to DeepSeek V4.1 Flash, makes 500 to 1,600 tool calls, compacts its context up to 33 times, and obtains up to 59% of the requirements held by colleagues, yet reaches only 28–39%. These agents can already find the relevant colleagues and obtain much of the context, but struggle to keep track of each requirement from clarification through implementation and verification to the delivery report. The two leading models make fewer than 200 tool calls and reach 63–64%, and they share the same limitation on a smaller scale: in Claude-Opus-5.5 runs, 56% of failed nodes with linked requirements fail at implementation, and 31% of requirements reported as done fail their tests.</p>
+                    <p class="workplace-copy">Claude-Opus-5.5 still uses about twice GPT-6 Astra’s input because of its context window. GPT-6 Astra’s window is about 258K tokens and its median peak context is 245K, so most runs are compacted; Claude-Opus-5.5 has a 1M-token window, a median peak of 483K, and never compacts.</p>
+                    <div class="metric-switch usage-switch" role="group" aria-label="Choose usage metric">
+                        <button type="button" class="metric-button" data-usage="calls" aria-pressed="false" disabled>Model calls</button>
+                        <button type="button" class="metric-button is-active" data-usage="input" aria-pressed="true" disabled>Input tokens</button>
+                        <button type="button" class="metric-button" data-usage="output" aria-pressed="false" disabled>Output tokens</button>
+                        <button type="button" class="metric-button" data-usage="tools" aria-pressed="false" disabled>Tool calls</button>
+                        <button type="button" class="metric-button" data-usage="compactions" aria-pressed="false" disabled>Compactions</button>
+                    </div>
+                    <p class="usage-status" id="usage-status" role="status">Loading the usage medians…</p>
+                    <div class="acq-body usage-body" id="usage-interactive" hidden>
+                        <div class="acq-plot usage-plot" id="usage-plot">
+                            <svg id="usage-svg" viewBox="0 0 640 400" role="group" aria-labelledby="usage-svg-title"><title id="usage-svg-title">Median input tokens per run against full-release F2P</title></svg>
+                            <div class="acq-tooltip usage-tooltip" id="usage-tooltip" role="status" hidden></div>
+                        </div>
+                        <aside class="acq-aside usage-aside" aria-live="polite">
+                            <div class="usage-model" id="usage-model">GPT-6 Astra</div>
+                            <div class="aside-number" id="usage-value">20.32<span>M</span></div>
+                            <div class="aside-label" id="usage-value-label">Median input tokens per run</div>
+                            <div class="usage-score">F2P <b id="usage-f2p">62.91%</b></div>
+                            <p id="usage-copy">Input usage includes tokens processed across repeated calls within a run.</p>
+                            <p class="usage-hint">Hover over a point, or select a model below.</p>
+                        </aside>
+                    </div>
+                    <div class="usage-models" id="usage-models" role="group" aria-label="Select a model to inspect"></div>
+                    <p class="usage-note">Usage summaries cover nine of the eleven evaluated models. Token medians are unavailable for Seed 2.1 Pro and DeepSeek V4 Pro. F2P uses the full 101-task release. Dots and short lines mark exact values where nearby logos are offset. M = 1,000,000 tokens.</p>
+                    <div class="usage-downloads">
+                        <a href="../static/figures/usage_medians_vs_f2p.pdf?v=20261022-usage-v10" target="_blank" rel="noopener">Usage figure PDF ↗</a>
+                        <a href="../static/figures/tool_compaction_vs_f2p.pdf?v=20261022-usage-v10" target="_blank" rel="noopener">Tool use figure PDF ↗</a>
+                        <a href="../static/data/usage-medians.json?v=20261022-usage-v10" download>Median data ↓</a>
+                    </div>
+                    <details class="acq-table usage-table">
+                        <summary>Show all usage medians</summary>
+                        <div class="acq-table-scroll">
+                            <table>
+                                <caption class="usage-table-caption">Per-run usage medians and full-release F2P</caption>
+                                <thead><tr><th scope="col">Model</th><th scope="col">Model calls</th><th scope="col">Input (M)</th><th scope="col">Output (M)</th><th scope="col">Tool calls</th><th scope="col">Compactions</th><th scope="col">F2P</th></tr></thead>
+                                <tbody id="usage-table-body"></tbody>
+                            </table>
+                        </div>
+                        <p class="acq-table-note">≈ marks approximate input usage. — means unavailable.</p>
+                    </details>
+                    <noscript><p class="usage-note">The usage figures and their PDFs are available in the <a href="#usage-figure">figure gallery</a>.</p></noscript>
+                </section>
+
+                <section class="acq-card workplace-card reveal" id="workplace" aria-labelledby="workplace-heading">
+                    <div class="acq-head usage-head">
+                        <div>
+                            <div class="section-kicker">WORKPLACE EXPLORATION</div>
+                            <h3 id="workplace-heading">Workplace queries, first edits,<br><span class="muted-heading">and messages to colleagues.</span></h3>
+                        </div>
+                        <a class="usage-paper-link" href="#workplace-figure">Enlarge the figure ↓</a>
+                    </div>
+                    <p class="workplace-copy">How much a model explores does not predict delivery. Claude-Opus-5.5 makes a median of only 56 workplace queries per run, while DeepSeek V4.1 Flash makes 572. The two leading models reach their first code edit at tool calls 67 and 82, still about a third of the way into their short runs. Kimi K3 and GLM 5.2 query and edit on a similar schedule but reach less than half the F2P. The clearest difference is colleague contact: they send medians of 8 and 5 messages, against 19.5 for Claude-Opus-5.5 and 18.5 for GPT-6 Astra. Asking colleagues is not sufficient on its own: GLM 5.3 sends the most messages, 21, and reaches 31.27% F2P.</p>
+                    <a class="workplace-preview" href="#workplace-figure" aria-label="View the workplace exploration figure in the gallery"><img src="../static/figures/workplace_exploration_vs_f2p.webp?v=20261022-usage-v10" alt="Five panels comparing workplace queries, first-edit tool-call index and share, and messages to colleagues against F2P for eight models" loading="lazy" decoding="async" width="2310" height="2310"></a>
+                    <div class="usage-downloads">
+                        <a href="../static/figures/workplace_exploration_vs_f2p.pdf?v=20261022-usage-v10" target="_blank" rel="noopener">Workplace exploration figure PDF ↗</a>
+                        <a href="../static/data/workplace-medians.json?v=20261022-usage-v10" download>Median data ↓</a>
+                    </div>
+                    <details class="acq-table usage-table">
+                        <summary>Show all workplace exploration medians</summary>
+                        <div class="acq-table-scroll">
+                            <table>
+                                <caption class="usage-table-caption">Per-run medians and full-release F2P for eight models</caption>
+                                <thead><tr><th scope="col">Model</th><th scope="col">Queries before editing</th><th scope="col">First-edit call</th><th scope="col">First-edit share</th><th scope="col">Queries over the run</th><th scope="col">Messages to colleagues</th><th scope="col">F2P</th></tr></thead>
+                                <tbody>
+                                <tr><th scope="row">Claude-Opus-5.5</th><td>39</td><td>82</td><td>38%</td><td>56</td><td>19.5</td><td>63.84%</td></tr>
+                                <tr><th scope="row">GPT-6 Astra</th><td>52</td><td>67</td><td>31%</td><td>101</td><td>18.5</td><td>62.91%</td></tr>
+                                <tr><th scope="row">Seed Evolving</th><td>39.5</td><td>85</td><td>12.53%</td><td>134</td><td>—</td><td>39.09%</td></tr>
+                                <tr><th scope="row">Qwen3.8-Max</th><td>77</td><td>163</td><td>23%</td><td>170</td><td>6</td><td>35.70%</td></tr>
+                                <tr><th scope="row">GLM 5.3</th><td>74</td><td>227</td><td>13%</td><td>215</td><td>21</td><td>31.27%</td></tr>
+                                <tr><th scope="row">DeepSeek V4.1 Flash</th><td>272</td><td>703</td><td>53%</td><td>572</td><td>4.5</td><td>28.20%</td></tr>
+                                <tr><th scope="row">Kimi K3</th><td>37.5</td><td>105</td><td>37%</td><td>73</td><td>8</td><td>27.08%</td></tr>
+                                <tr><th scope="row">GLM 5.2</th><td>40.5</td><td>130</td><td>34%</td><td>100</td><td>5</td><td>24.40%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="acq-table-note">First-edit share is the median of each run’s first-edit tool-call index divided by its total tool calls, expressed as a percentage. Query and message counts are medians per run. — means unavailable.</p>
+                    </details>
+                </section>
+
+                <div class="oracle-card reveal">
+                    <div class="oracle-copy">
+                        <div class="section-kicker">THE ORACLE-SPEC TEST</div>
+                        <h3>Hand over every requirement.<br><span class="muted-heading">F2P rises about 16 points. Pass rates stay where they were.</span></h3>
+                        <p>Same model, repositories, tests, scaffold, and budget. The only change is that the complete requirements arrive at the start. With every requirement in hand, Seed Evolving still leaves 44% of F2P nodes unsatisfied and GPT-6 Astra 21%.</p>
+                    </div>
+                    <div class="oracle-metrics">
+                        <div class="oracle-group">
+                            <div class="oracle-model"><img src="../static/logos/seed.png" alt="" class="model-logo">Seed Evolving</div>
+                            <div class="oracle-metric"><span>F2P</span><div><b>39.09</b><i></i><b class="oracle-value">55.76</b></div><small>+16.67 pp</small></div>
+                            <div class="oracle-metric"><span>P2P</span><div><b>94.48</b><i></i><b class="oracle-value">89.50</b></div><small class="is-negative">−4.98 pp</small></div>
+                            <div class="oracle-metric"><span>Pass</span><div><b>0.99</b><i></i><b class="oracle-value">0.99</b></div><small class="is-flat">±0.00 pp</small></div>
+                        </div>
+                        <div class="oracle-group">
+                            <div class="oracle-model"><img src="../static/logos/gpt.png" alt="" class="model-logo">GPT-6 Astra</div>
+                            <div class="oracle-metric"><span>F2P</span><div><b>62.91</b><i></i><b class="oracle-value">78.84</b></div><small>+15.93 pp</small></div>
+                            <div class="oracle-metric"><span>P2P</span><div><b>89.15</b><i></i><b class="oracle-value">91.81</b></div><small>+2.66 pp</small></div>
+                            <div class="oracle-metric"><span>Pass</span><div><b>7.92</b><i></i><b class="oracle-value">7.92</b></div><small class="is-flat">±0.00 pp</small></div>
+                        </div>
+                        <div class="oracle-legend"><span><i class="legend-before"></i>CoWork</span><span><i class="legend-after"></i>Oracle-Spec</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" id="diagnosis">
+            <div class="section-heading reveal">
+                <div class="section-kicker">05 · The diagnosis</div>
+                <h2>Where does delivery<br><span class="muted-heading">actually break?</span></h2>
+                <p>Claude-Opus-5.5 has the highest F2P score, so its recorded trajectories become a microscope. The traces connect each failed test to its requirement, the colleague who holds it, the question, the patch, and the final handoff note. The agent finds the right people. It loses track of individual requirements afterward.</p>
+            </div>
+
+            <div class="fact-strip reveal">
+                <article class="fact-card"><span class="stat-value">93%</span><span class="stat-label">of first questions go to the accountable owner</span><span class="stat-meta">only 3% of requirements held by colleagues sit with owners never contacted</span></article>
+                <article class="fact-card"><span class="stat-value">153<small>/450</small></span><span class="stat-label">deferred threads are never revisited</span><span class="stat-meta">median of 7.1 hours of budget left</span></article>
+                <article class="fact-card"><span class="stat-value">31%</span><span class="stat-label">of requirements reported as done fail their tests</span><span class="stat-meta">255 of 826 completion claims</span></article>
+            </div>
+
+            <div class="diagnosis-grid reveal">
+                <article class="diagnosis-card">
+                    <div class="panel-head"><span class="panel-kicker">REQUIREMENT ACQUISITION</span><span class="panel-note">2,176 requirements held by colleagues</span></div>
+                    <div class="stacked-bar" aria-label="64 percent disclosed, 16 percent owner asked about card, 17 percent owner asked but card not raised, 3 percent owner never contacted">
+                        <span class="stack-disclosed" style="width:64%">64%</span><span class="stack-raised" style="width:16%">16%</span><span class="stack-missed" style="width:17%">17%</span><span class="stack-never" style="width:3%"></span>
+                    </div>
+                    <div class="stack-legend">
+                        <span><i class="legend-blue"></i>Disclosed <b>1,400</b></span>
+                        <span><i class="legend-orange"></i>Asked, no disclosure <b>357</b></span>
+                        <span><i class="legend-purple"></i>Card not raised <b>363</b></span>
+                        <span><i class="legend-grey"></i>Never contacted <b>56</b></span>
+                    </div>
+                    <p class="card-insight">Most undisclosed requirements belong to owners the agent already contacted: the relevant card was never raised, or the conversation ended without an answer.</p>
+                </article>
+                <article class="diagnosis-card">
+                    <div class="panel-head"><span class="panel-kicker">WHERE FAILED NODES WERE LOST</span><span class="panel-note">976 failed F2P nodes</span></div>
+                    <div class="failure-list">
+                        <div class="failure-row"><span>Discovery</span><div><i style="width:2%"></i></div><b>2%</b></div>
+                        <div class="failure-row"><span>Ask</span><div><i class="failure-orange" style="width:42%"></i></div><b>42%</b></div>
+                        <div class="failure-row"><span>Read</span><div><i style="width:0%"></i></div><b>0%</b></div>
+                        <div class="failure-row"><span>Implement</span><div><i class="failure-blue" style="width:56%"></i></div><b>56%</b></div>
+                    </div>
+                    <p class="card-insight">42% of failed tests trace back to a requirement that stayed with a colleague. 56% trace back to a requirement the agent received and still did not satisfy.</p>
+                </article>
+            </div>
+
+            <div class="closing-insight reveal">
+                <div class="closing-icon"><span></span><span></span><span></span></div>
+                <div>
+                    <div class="section-kicker">THE TAKEAWAY</div>
+                    <h3>Asking is not acquiring.<br>Acquiring is not verifying.<br><span>Shipping is not finishing.</span></h3>
+                </div>
+                <p>Dependable delivery means tracking every requirement until it is closed: raise it with its owner, revisit deferred questions, implement it, verify it against the tests, and report its true status in the handoff.</p>
+            </div>
+        </section>
+
+        <section class="section container" id="figures">
+            <div class="section-heading reveal">
+                <div class="section-kicker">06 · The paper</div>
+                <h2>Every figure,<br><span class="muted-heading">straight from the paper.</span></h2>
+                <p>All fourteen figures from the paper, rendered from the source files. Select a figure to enlarge it, or <a href="../static/SWE-CoWork.pdf?v=20261022-usage-v10" target="_blank" rel="noopener">read the full PDF</a>.</p>
+            </div>
+            <div class="paper-figs reveal">
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="1" aria-label="Enlarge Figure 1"><img src="../static/figures/fig01.webp" alt="The same Click requirement as an issue-based task and as an ongoing SWE-CoWork assignment" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 1</b> The same Click requirement presented directly as an issue (left) and within an ongoing SWE-CoWork assignment (right). Knowledge is distributed among digital employees and workplace records; the agent recovers the requirement, consults the responsible colleague, implements and verifies the change, and updates its interpretation when new evidence appears.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="2" aria-label="Enlarge Figure 2"><img src="../static/figures/fig02.webp" alt="Composition of the 101 tasks" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 2</b> Composition of the 101 SWE-CoWork tasks: (a) primary language, (b) application domain, (c) production lines added, on a log axis, (d) verifier test nodes per task. Dashed lines mark medians.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="3" aria-label="Enlarge Figure 3"><img src="../static/figures/fig03.webp" alt="An owner clarification changes a timesheet export in task 094, Kimai" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 3</b> An owner clarification changes a timesheet export implementation in a recorded run (task 094, Kimai). The owner specifies that the user’s preference must be evaluated on every render, and the agent updates its implementation and tests.</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="4" aria-label="Enlarge Figure 4"><img src="../static/figures/fig04.webp" alt="Five workplace information challenges: late evidence, superseded conclusions, ambiguous provenance, scope distractors, and fragmented ownership" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 4</b> Five workplace information challenges and the judgments they require, organized by the timing, provenance, and authority of evidence. The panels use schematic situations and condensed workplace-record examples.</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="5" aria-label="Enlarge Figure 5"><img src="../static/figures/fig05.webp" alt="F2P against requirement acquisition and tool calls across eleven models" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 5</b> Requirement acquisition, tool calls, and delivery across eleven models. (a) F2P against the share of colleague-held requirements disclosed during the run (Spearman ρ = 0.94). (b) F2P against median tool calls per run, on a log axis (ρ = 0.08).</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide" id="usage-figure">
+                    <button type="button" class="paper-fig-open" data-fig="6" aria-label="Enlarge Figure 6"><img src="../static/figures/usage_medians_vs_f2p.webp?v=20261022-usage-v10" alt="Median model calls, input tokens and output tokens against full-release F2P" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 6</b> Model calls, token usage, and delivery. Each point pairs a model’s per-run usage median with its full-release F2P. The output axis uses a log scale. Dots and leaders mark exact values where nearby logos are offset. Seed Evolving input is approximate; its output median is unavailable.</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="7" aria-label="Enlarge Figure 7"><img src="../static/figures/tool_compaction_vs_f2p.webp?v=20261022-usage-v10" alt="Median tool calls and context compactions against full-release F2P for nine models" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 7</b> Tool use, context compaction, and delivery across nine models. Tool calls use a logarithmic axis; compactions use a linear axis to include zero. Dots and leaders mark exact values where nearby logos are offset.</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide" id="workplace-figure">
+                    <button type="button" class="paper-fig-open" data-fig="8" aria-label="Enlarge Figure 8"><img src="../static/figures/workplace_exploration_vs_f2p.webp?v=20261022-usage-v10" alt="Workplace queries, first-edit position and colleague messages against full-release F2P for eight models" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 8</b> Workplace exploration, first code edit, and delivery. Full-release F2P against per-run medians of (a) workplace queries before the first code edit, (b) the tool-call index of that edit, (c) that index as a percentage of all tool calls in the run, (d) workplace queries over the full run, and (e) messages sent to colleagues. Panels (a–d) cover eight models; (e) covers the seven with a reported message median. Panel (c) uses the median of per-run percentages. All axes are linear. Dots and leaders mark exact values where nearby logos are offset.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="9" aria-label="Enlarge Figure 9"><img src="../static/figures/fig06.webp" alt="Requirement acquisition and loss in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 9</b> Requirement acquisition and loss in Claude-Opus-5.5. (a) Colleague-held requirements by acquisition state. (b) F2P pass rates by whether the requirement reached the agent. (c) Earliest observed loss stage for failed nodes.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="10" aria-label="Enlarge Figure 10"><img src="../static/figures/fig07.webp" alt="Follow-through and reporting in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 10</b> Follow-through and reporting in Claude-Opus-5.5. (a) Delivery claims compared with test outcomes. (b) Deferred threads and their follow-up. (c) Timing of colleague messages within a run.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="11" aria-label="Enlarge Figure 11"><img src="../static/figures/fig08.webp" alt="Claude-Opus-5.5 behavior profile" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 11</b> Claude-Opus-5.5 behavior profile. (a) Share of assessable runs by observed behavior, from ineffective to adaptive. (b) Spearman associations with per-task F2P, with exploratory 95% bootstrap intervals.</figcaption>
+                </figure>
+                <figure class="paper-fig">
+                    <button type="button" class="paper-fig-open" data-fig="12" aria-label="Enlarge Figure 12"><img src="../static/figures/fig09.webp" alt="Effort, outcomes and stopping in Claude-Opus-5.5" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 12</b> Effort, outcomes and stopping in Claude-Opus-5.5. (a–c) Tool calls, colleague messages and hours against per-task F2P. (d) Distribution of F2P over the 101 tasks. (e) How runs ended, including stops with known, actionable gaps.</figcaption>
+                </figure>
+                <figure class="paper-fig paper-fig-wide">
+                    <button type="button" class="paper-fig-open" data-fig="13" aria-label="Enlarge Figure 13"><img src="../static/figures/fig10.webp" alt="Examples of evidence assessment in workplace records" loading="lazy" decoding="async"></button>
+                    <figcaption><b>Figure 13</b> Examples of evidence assessment in workplace records. (a) A published correction supersedes an earlier return shape. (b) Run identifiers expose a discrepancy in copied terminal output. (c) Output semantics and an open question about stream ownership.</figcaption>
+                </figure>
+            </div>
+            <dialog class="fig-lightbox" id="fig-lightbox" aria-label="Enlarged figure">
+                <div class="fig-lightbox-bar"><span id="fig-lightbox-label">Figure 1</span><div><button type="button" class="metric-button" id="fig-prev" aria-label="Previous figure">←</button><button type="button" class="metric-button" id="fig-next" aria-label="Next figure">→</button><button type="button" class="metric-button" id="fig-close" aria-label="Close">Close</button></div></div>
+                <div class="fig-lightbox-stage"><img id="fig-lightbox-img" src="" alt=""></div>
+                <p id="fig-lightbox-cap"></p>
+            </dialog>
+        </section>
+
+        <section class="section container" id="team">
+            <div class="section-heading reveal">
+                <div class="section-kicker">07 · The team</div>
+                <h2>Authors</h2>
+            </div>
+            <div class="author-grid reveal">
+                <div class="author-group"><span class="panel-kicker">LEADING AUTHORS</span><p>Xinping Lei</p></div>
+                <div class="author-group"><span class="panel-kicker">CORE CONTRIBUTORS</span><p>Minghao Liu, Ruijie Zhu, Xiaohui Hu</p></div>
+                <div class="author-group"><span class="panel-kicker">CORRESPONDING AUTHORS</span><p>Ge Zhang, Jiaheng Liu, Weihao Xuan</p></div>
+                <div class="author-group author-wide"><span class="panel-kicker">CONTRIBUTORS</span><p>Xingqiao Li, Ao Zhang, Wenhao Chai, Han Li, Jingyuan Zhang, Enduo Zhao, Yunfeng Shi, Yiming Liang, Zetao Yang, Xingjian Wang, Yifan Yao, Xinkai Ma, Tianhan Yang, Huan Zhou, Weiran Shi, Shen Yan</p></div>
+            </div>
+            <div class="cite-card reveal">
+                <div class="panel-head"><span class="panel-kicker">CITATION</span><button type="button" class="metric-button" id="copy-bibtex">Copy BibTeX</button></div>
+                <pre id="bibtex">@misc{swecowork2026,
+  title  = {SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations},
+  author = {Lei, Xinping and Liu, Minghao and Zhu, Ruijie and Hu, Xiaohui and others},
+  year   = {2026},
+  note   = {TokenWave AI},
+  url    = {https://github.com/TokenWave-AI/swe-cowork-bench}
+}</pre>
+            </div>
+        </section>
+
+        <section class="finale">
+            <div class="container finale-inner reveal">
+                <div class="section-kicker">SWE-CoWork · TokenWave AI</div>
+                <h2>The future engineer<br><span class="gradient-text">is an owner.</span></h2>
+                <p>Human direction. Collective agent execution. A benchmark for the moment when “write the code” becomes “take responsibility for the work.”</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="../static/SWE-CoWork.pdf?v=20261022-usage-v10" target="_blank" rel="noopener">Read the full paper <span aria-hidden="true">↗</span></a>
+                    <a class="button button-quiet" href="https://github.com/TokenWave-AI/swe-cowork-bench" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+                    <a class="button button-quiet" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div><a class="brand" href="#top"><img src="../static/mark.png" alt="" class="brand-mark"><span class="brand-name">TokenWave<span class="brand-ai">AI</span></span></a><p>Intelligence emerges as tokens flow and communicate.</p></div>
+            <div class="footer-meta"><span>SWE-CoWork</span><span>Research note · 2026</span><span>TokenWave AI</span></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="usage.js?v=20261022-usage-v10"></script>
+</body>
+</html>

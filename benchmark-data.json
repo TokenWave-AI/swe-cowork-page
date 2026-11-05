@@ -1,0 +1,84 @@
+{
+  "source": "original/index.html",
+  "setting": "CoWork",
+  "tasks": 101,
+  "models": [
+    {
+      "name": "Claude-Opus-5.5",
+      "f2p": 63.84,
+      "p2p": 93.24,
+      "passRate": 6.93,
+      "logo": "static/logos/claude.png"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "f2p": 62.91,
+      "p2p": 89.15,
+      "passRate": 7.92,
+      "logo": "static/logos/gpt.png"
+    },
+    {
+      "name": "Seed Evolving",
+      "f2p": 39.09,
+      "p2p": 94.48,
+      "passRate": 0.99,
+      "logo": "static/logos/seed.png"
+    },
+    {
+      "name": "Qwen3.8-Max",
+      "f2p": 35.7,
+      "p2p": 91.8,
+      "passRate": 0.0,
+      "logo": "static/logos/qwen.png"
+    },
+    {
+      "name": "GLM 5.3",
+      "f2p": 31.27,
+      "p2p": 87.72,
+      "passRate": 0.99,
+      "logo": "static/logos/glm.png"
+    },
+    {
+      "name": "Qwen3.8-Flash",
+      "f2p": 30.7,
+      "p2p": 93.4,
+      "passRate": 0.0,
+      "logo": "static/logos/qwen.png"
+    },
+    {
+      "name": "DeepSeek V4.1 Flash",
+      "f2p": 28.2,
+      "p2p": 94.3,
+      "passRate": 0.0,
+      "logo": "static/logos/deepseek.png"
+    },
+    {
+      "name": "Kimi K3",
+      "f2p": 27.08,
+      "p2p": 84.88,
+      "passRate": 0.99,
+      "logo": "static/logos/kimi.png"
+    },
+    {
+      "name": "GLM 5.2",
+      "f2p": 24.4,
+      "p2p": 95.2,
+      "passRate": 0.0,
+      "logo": "static/logos/glm.png"
+    },
+    {
+      "name": "Seed 2.1 Pro",
+      "f2p": 21.01,
+      "p2p": 81.85,
+      "passRate": 0.0,
+      "logo": "static/logos/seed.png"
+    },
+    {
+      "name": "DeepSeek V4 Pro",
+      "f2p": 13.04,
+      "p2p": 90.21,
+      "passRate": 0.0,
+      "logo": "static/logos/deepseek.png"
+    }
+  ]
+}
