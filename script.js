@@ -88,7 +88,7 @@
   demoPlay.addEventListener('click',playDemo);
   document.querySelectorAll('[data-play-demo]').forEach(button=>button.addEventListener('click',event=>{
     event.preventDefault();
-    document.getElementById('demo').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    document.querySelector('.demo-player').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
     playDemo();
   }));
   demoVideo.addEventListener('play',()=>{demoPlay.hidden=true;demoVideo.controls=true;demoStatus.hidden=true;});

@@ -5,7 +5,7 @@ The research website for **SWE-CoWork: Benchmarking Coding Agents as Digital Emp
 - Website: https://tokenwave-ai.github.io/swe-cowork-page/
 - Benchmark repository: https://github.com/TokenWave-AI/swe-cowork-bench
 
-The page includes the reported leaderboard, a five-step Mempool case, the inline 92-second demo, the research vision, paper figures and supporting resources. The benchmark repository is private; GitHub access is required to view it.
+The page includes the reported leaderboard, a five-step Mempool case, a full-width inline 92-second demo below the introduction, the research vision, paper figures and supporting resources. The benchmark repository is private; GitHub access is required to view it.
 
 ## Local preview
 
