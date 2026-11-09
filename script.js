@@ -22,6 +22,8 @@
   document.querySelectorAll('[data-sort]').forEach(button=>button.addEventListener('click',()=>sort(button.dataset.sort)));
   sort('f2p',false);
   const flowTitles=['Read the handoff','Trace the open work','Confirm the requirement','Change the code','Check and report'];
+  const flowSources=['records','records','colleagues','code','code'];
+  const sourceButtons=Array.from(document.querySelectorAll('[data-flow-source]'));
   const flowNotes = [
     ["START WITH THE HANDOFF", "The handoff identifies the project and where to look next. The agent uses the board, project records and colleagues to work out which requirements remain open."],
     ["FIND THE QUESTION TO RESOLVE", "MEM-227 concerns the audit summary. Before changing the code, the agent needs to ask Yuan Jing which data the summary should use and what to return when no audit is saved."],
@@ -43,6 +45,7 @@
       if(button.classList.contains('flow-node')){button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;button.setAttribute('aria-label','Step '+(i+1)+': '+flowTitles[i]);}
       else button.setAttribute('aria-pressed',String(selected));
     });
+    sourceButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.flowSource===flowSources[index])));
     document.querySelectorAll('.flow-stage').forEach((panel,i)=>panel.hidden=i!==index);
     document.querySelector('[data-flow-counter]').textContent=String(index+1).padStart(2,'0')+' / 05 · '+flowTitles[index];
     document.querySelector('[data-flow-prev]').disabled=index===0;document.querySelector('[data-flow-next]').disabled=index===4;
@@ -50,6 +53,10 @@
     if(focus)flowTabs[index].focus();
   }
   document.querySelectorAll('[data-flow-step]').forEach(button=>button.addEventListener('click',()=>activateFlow(Number(button.dataset.flowStep))));
+  sourceButtons.forEach(button=>button.addEventListener('click',()=>{
+    const index=flowSources[currentFlow]===button.dataset.flowSource?currentFlow:flowSources.indexOf(button.dataset.flowSource);
+    activateFlow(index);
+  }));
   flowTabs.forEach((tab,index)=>tab.addEventListener('keydown',event=>{
     const next=event.key==='ArrowRight'?(index+1)%5:event.key==='ArrowLeft'?(index+4)%5:event.key==='Home'?0:event.key==='End'?4:null;
     if(next!==null){event.preventDefault();activateFlow(next,{focus:true});}

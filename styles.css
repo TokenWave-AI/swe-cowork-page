@@ -130,8 +130,9 @@ b, strong { font-weight: 600; }
 .demo-status { margin: 16px 0 0; font-size: 14px; line-height: 22px; }
 .demo-status a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 .file-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 0 16px; }
-.file-tabs span { font-size: 14px; line-height: 22px; padding: 6px 12px; background: var(--surface); border-radius: var(--radius); white-space: nowrap; }
-.file-tabs span:last-child { background: var(--blue-tint); color: var(--blue); }
+.file-tabs button { font-size: 14px; line-height: 22px; padding: 6px 12px; background: var(--surface); border-radius: var(--radius); white-space: nowrap; }
+.file-tabs button:hover { color: var(--blue); }
+.file-tabs button[aria-pressed=true] { background: var(--blue-tint); color: var(--blue); }
 .dossier-sheet { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
 .dossier-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; color: var(--secondary); }
 .dossier-heading .mono, .dossier-status { font-size: 12px; line-height: 18px; white-space: nowrap; }
@@ -379,7 +380,7 @@ details[open]>summary .details-count i { transform: rotate(45deg); }
   .demo-play-icon { width: 56px; height: 56px; }
   .demo-play-icon svg { width: 24px; height: 24px; }
   .file-tabs { gap: 8px; }
-  .file-tabs span { padding-inline: 10px; }
+  .file-tabs button { padding-inline: 10px; }
   .result-callout { flex-wrap: wrap; gap: 12px; }
   .evaluation-equation { gap: 8px; flex-wrap: wrap; justify-content: flex-start; }
   .evaluation-equation b { font-size: 18px; line-height: 26px; }
