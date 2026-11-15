@@ -5,7 +5,7 @@ The research website for **SWE-CoWork: Benchmarking Coding Agents as Digital Emp
 - Website: https://tokenwave-ai.github.io/swe-cowork-page/
 - Benchmark repository: https://github.com/TokenWave-AI/swe-cowork-bench
 
-The page includes the reported leaderboard, a five-step Mempool case, a full-width inline 92-second demo below the introduction, the research vision, paper figures and supporting resources. The benchmark repository is private; GitHub access is required to view it.
+The page includes the reported leaderboard, a five-step Mempool case, a full-width inline 96-second demo below the introduction, the research vision, paper figures and supporting resources. The benchmark repository is private; GitHub access is required to view it.
 
 ## Local preview
 
@@ -27,3 +27,7 @@ Open http://127.0.0.1:4173/. The site is static and has no build or package inst
 GitHub Pages publishes the repository root from `main`. `.nojekyll` keeps the files as a plain static site.
 
 The TokenWave horizontal logo is supplied artwork. Franie Test is used when installed locally; the bundled Noto Sans font provides an offline fallback. Its license is in `static/fonts/NotoSans-OFL.txt`. Scientific figures and benchmark values retain their reported scope and precision.
+
+## Demo music
+
+Music: [Inspired](https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1600022) by Kevin MacLeod, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Excerpted, equalized, and faded.
